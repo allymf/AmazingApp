@@ -1,6 +1,6 @@
 //
 //  NetworkService.swift
-//
+//  AmazingNetwork
 //
 //  Created by Alysson on 30/07/22.
 //
@@ -21,18 +21,21 @@ public protocol HTTPClient {
         responseType: Response.Type,
         completionHandler: @escaping (Result<(Response), Error>) -> Void
     )
+    
+    func cancelCurrentTask()
 }
 
 public final class NetworkService: HTTPClient {
     
     private let requestBuilder: RequestBuilding
-    private let session: URLSession
-    private let decoder: JSONDecoder
+    private let session: URLSessioning
+    private let decoder: Decoding
+    private var task: URLSessionDataTask?
     
     public init(
         requestBuilder: RequestBuilding = RequestBuilder(),
-        session: URLSession = .shared,
-        decoder: JSONDecoder = JSONDecoder()
+        session: URLSessioning = URLSession.shared,
+        decoder: Decoding = JSONDecoder()
     ) {
         self.requestBuilder = requestBuilder
         self.session = session
@@ -47,7 +50,7 @@ public final class NetworkService: HTTPClient {
         do {
             let request = try requestBuilder.buildRequest(for: endpoint)
             
-            session.dataTask(with: request) { response in
+            task = session.dataTask(with: request) { response in
                 let result = self.handleRequestResponse(response)
                 
                 switch result {
@@ -68,10 +71,16 @@ public final class NetworkService: HTTPClient {
                 }
             }
             
+            task?.resume()
+            
         } catch {
             completionHandler(.failure(error))
         }
         
+    }
+    
+    public func cancelCurrentTask() {
+        task?.cancel()
     }
     
     private func handleRequestResponse(_ response: Result<(Data, URLResponse), Error>) -> Result<Data, Error> {

@@ -7,12 +7,19 @@
 
 import Foundation
 
-extension URLSession {
+public protocol URLSessioning {
     func dataTask(
         with request: URLRequest,
         completionHandler: @escaping (Result<(Data, URLResponse), Error>) -> Void
-    ) {
-        dataTask(with: request) { data, response, error in
+    ) -> URLSessionDataTask
+}
+
+extension URLSession: URLSessioning {
+    public func dataTask(
+        with request: URLRequest,
+        completionHandler: @escaping (Result<(Data, URLResponse), Error>) -> Void
+    ) -> URLSessionDataTask {
+        return dataTask(with: request) { data, response, error in
             if let error = error {
                 completionHandler(.failure(error))
                 return
