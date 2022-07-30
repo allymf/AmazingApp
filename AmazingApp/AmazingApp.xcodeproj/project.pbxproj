@@ -12,14 +12,15 @@
 		3F40464B2895D08E00A1A3E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40464A2895D08E00A1A3E0 /* ViewController.swift */; };
 		3F4046502895D09000A1A3E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40464F2895D09000A1A3E0 /* Assets.xcassets */; };
 		3F4046532895D09000A1A3E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4046512895D09000A1A3E0 /* LaunchScreen.storyboard */; };
-		3F40465E2895D09000A1A3E0 /* AmazingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40465D2895D09000A1A3E0 /* AmazingAppTests.swift */; };
 		3F4046832895D69C00A1A3E0 /* AmazingNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F40467B2895D69C00A1A3E0 /* AmazingNetwork.framework */; };
 		3F40468A2895D69C00A1A3E0 /* AmazingNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046892895D69C00A1A3E0 /* AmazingNetworkTests.swift */; };
 		3F40468B2895D69C00A1A3E0 /* AmazingNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F40467D2895D69C00A1A3E0 /* AmazingNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F40468E2895D69C00A1A3E0 /* AmazingNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F40467B2895D69C00A1A3E0 /* AmazingNetwork.framework */; };
 		3F40468F2895D69C00A1A3E0 /* AmazingNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F40467B2895D69C00A1A3E0 /* AmazingNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3F40469A2895D76D00A1A3E0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046992895D76D00A1A3E0 /* HTTPMethod.swift */; };
-		3F40469C2895D7AF00A1A3E0 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40469B2895D7AF00A1A3E0 /* Endpoint.swift */; };
+		3F40469E2895D8D100A1A3E0 /* URLSession+DataTaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40469D2895D8D100A1A3E0 /* URLSession+DataTaskResult.swift */; };
+		3F40469F2895D8D400A1A3E0 /* AmazingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40465D2895D09000A1A3E0 /* AmazingAppTests.swift */; };
+		3F4046A02895D8D700A1A3E0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046992895D76D00A1A3E0 /* HTTPMethod.swift */; };
+		3F4046A12895D8DD00A1A3E0 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40469B2895D7AF00A1A3E0 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		3F4046892895D69C00A1A3E0 /* AmazingNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingNetworkTests.swift; sourceTree = "<group>"; };
 		3F4046992895D76D00A1A3E0 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		3F40469B2895D7AF00A1A3E0 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		3F40469D2895D8D100A1A3E0 /* URLSession+DataTaskResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+DataTaskResult.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				3F40465D2895D09000A1A3E0 /* AmazingAppTests.swift */,
 				3F4046992895D76D00A1A3E0 /* HTTPMethod.swift */,
 				3F40469B2895D7AF00A1A3E0 /* Endpoint.swift */,
+				3F40469D2895D8D100A1A3E0 /* URLSession+DataTaskResult.swift */,
 			);
 			path = AmazingAppTests;
 			sourceTree = "<group>";
@@ -364,9 +367,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F40469A2895D76D00A1A3E0 /* HTTPMethod.swift in Sources */,
-				3F40469C2895D7AF00A1A3E0 /* Endpoint.swift in Sources */,
-				3F40465E2895D09000A1A3E0 /* AmazingAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +374,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F40469E2895D8D100A1A3E0 /* URLSession+DataTaskResult.swift in Sources */,
+				3F40469F2895D8D400A1A3E0 /* AmazingAppTests.swift in Sources */,
+				3F4046A12895D8DD00A1A3E0 /* Endpoint.swift in Sources */,
+				3F4046A02895D8D700A1A3E0 /* HTTPMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +543,7 @@
 		3F40466E2895D09000A1A3E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -566,6 +571,7 @@
 		3F40466F2895D09000A1A3E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -696,6 +702,7 @@
 		3F4046932895D69C00A1A3E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7MT6UF73LS;
@@ -713,6 +720,7 @@
 		3F4046942895D69C00A1A3E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7MT6UF73LS;
