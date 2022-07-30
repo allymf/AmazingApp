@@ -19,6 +19,7 @@
 		3F40468E2895D69C00A1A3E0 /* AmazingNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F40467B2895D69C00A1A3E0 /* AmazingNetwork.framework */; };
 		3F40468F2895D69C00A1A3E0 /* AmazingNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F40467B2895D69C00A1A3E0 /* AmazingNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3F40469A2895D76D00A1A3E0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046992895D76D00A1A3E0 /* HTTPMethod.swift */; };
+		3F40469C2895D7AF00A1A3E0 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40469B2895D7AF00A1A3E0 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		3F4046822895D69C00A1A3E0 /* AmazingNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmazingNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4046892895D69C00A1A3E0 /* AmazingNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingNetworkTests.swift; sourceTree = "<group>"; };
 		3F4046992895D76D00A1A3E0 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		3F40469B2895D7AF00A1A3E0 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			children = (
 				3F40465D2895D09000A1A3E0 /* AmazingAppTests.swift */,
 				3F4046992895D76D00A1A3E0 /* HTTPMethod.swift */,
+				3F40469B2895D7AF00A1A3E0 /* Endpoint.swift */,
 			);
 			path = AmazingAppTests;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F40469A2895D76D00A1A3E0 /* HTTPMethod.swift in Sources */,
+				3F40469C2895D7AF00A1A3E0 /* Endpoint.swift in Sources */,
 				3F40465E2895D09000A1A3E0 /* AmazingAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
