@@ -10,16 +10,20 @@ import Foundation
 public enum NetworkLayerError: Error {
     case unableToCreateURL
     case unableToCreateRequest
+    case unableToDecodeResponse(decodingError: DecodingError)
+    case transportError(Error)
     case noData
-    case serverError
-    case invalidResponseTyp
+    case noResponse
+    case invalidResponseType
+    case serverSideError(statusCode: Int)
+    case unknownError(Error)
 }
 
 public protocol HTTPClient {
     func request<Response: Decodable>(
         endpoint: Endpoint,
         responseType: Response.Type,
-        completionHandler: @escaping (Result<(Response), Error>) -> Void
+        completionHandler: @escaping (Result<(Response), NetworkLayerError>) -> Void
     )
     
     func cancelCurrentTask()
@@ -45,7 +49,7 @@ public final class NetworkService: HTTPClient {
     public func request<Response: Decodable>(
         endpoint: Endpoint,
         responseType: Response.Type,
-        completionHandler: @escaping (Result<(Response), Error>) -> Void
+        completionHandler: @escaping (Result<(Response), NetworkLayerError>) -> Void
     ) {
         do {
             let request = try requestBuilder.buildRequest(for: endpoint)
@@ -64,8 +68,10 @@ public final class NetworkService: HTTPClient {
                             from: data
                         )
                         completionHandler(.success(response))
+                    } catch let decodingError as DecodingError {
+                        completionHandler(.failure(NetworkLayerError.unableToDecodeResponse(decodingError: decodingError)))
                     } catch {
-                        completionHandler(.failure(error))
+                        completionHandler(.failure(NetworkLayerError.unknownError(error)))
                     }
                     
                 }
@@ -73,8 +79,10 @@ public final class NetworkService: HTTPClient {
             
             task?.resume()
             
-        } catch {
+        } catch let error as NetworkLayerError {
             completionHandler(.failure(error))
+        } catch {
+            completionHandler(.failure(NetworkLayerError.unknownError(error)))
         }
         
     }
@@ -83,25 +91,25 @@ public final class NetworkService: HTTPClient {
         task?.cancel()
     }
     
-    private func handleRequestResponse(_ response: Result<(Data, URLResponse), Error>) -> Result<Data, Error> {
+    private func handleRequestResponse(_ response: Result<(Data, URLResponse), NetworkLayerError>) -> Result<Data, NetworkLayerError> {
         switch response {
         case let .failure(error):
             return .failure(error)
         case let .success((data, response)):
             guard let httpResponse = response as? HTTPURLResponse else {
-                return .failure(NetworkLayerError.serverError)
+                return .failure(NetworkLayerError.invalidResponseType)
             }
             
             return handleHTTPRequestResponse(httpResponse, data: data)
         }
     }
     
-    private func handleHTTPRequestResponse(_ response: HTTPURLResponse, data: Data) -> Result<Data, Error> {
+    private func handleHTTPRequestResponse(_ response: HTTPURLResponse, data: Data) -> Result<Data, NetworkLayerError> {
         switch response.statusCode {
         case 200...299:
             return .success(data)
         default:
-            return .failure(NetworkLayerError.serverError)
+            return .failure(NetworkLayerError.serverSideError(statusCode: response.statusCode))
         }
     }
     
