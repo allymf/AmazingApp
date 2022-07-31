@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F4046472895D08E00A1A3E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046462895D08E00A1A3E0 /* AppDelegate.swift */; };
 		3F4046492895D08E00A1A3E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046482895D08E00A1A3E0 /* SceneDelegate.swift */; };
-		3F40464B2895D08E00A1A3E0 /* ShowsListViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40464A2895D08E00A1A3E0 /* ShowsListViewControllerViewController.swift */; };
+		3F40464B2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40464A2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift */; };
 		3F4046502895D09000A1A3E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40464F2895D09000A1A3E0 /* Assets.xcassets */; };
 		3F4046532895D09000A1A3E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4046512895D09000A1A3E0 /* LaunchScreen.storyboard */; };
 		3F4046832895D69C00A1A3E0 /* AmazingNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F40467B2895D69C00A1A3E0 /* AmazingNetwork.framework */; };
@@ -30,6 +30,8 @@
 		3F4046B82896E96800A1A3E0 /* ShowsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046B72896E96800A1A3E0 /* ShowsListView.swift */; };
 		3F4046BA2896F41F00A1A3E0 /* ShowRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046B92896F41F00A1A3E0 /* ShowRepository.swift */; };
 		3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046BC28970BD400A1A3E0 /* Show.swift */; };
+		3F4046BF28970C6200A1A3E0 /* ShowEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046BE28970C6200A1A3E0 /* ShowEndpoint.swift */; };
+		3F4046C128970DCF00A1A3E0 /* ShowListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046C028970DCF00A1A3E0 /* ShowListInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +83,7 @@
 		3F4046432895D08E00A1A3E0 /* AmazingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4046462895D08E00A1A3E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F4046482895D08E00A1A3E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3F40464A2895D08E00A1A3E0 /* ShowsListViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListViewControllerViewController.swift; sourceTree = "<group>"; };
+		3F40464A2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListViewControllerViewController.swift; sourceTree = "<group>"; };
 		3F40464F2895D09000A1A3E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F4046522895D09000A1A3E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F4046542895D09000A1A3E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +105,8 @@
 		3F4046B72896E96800A1A3E0 /* ShowsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListView.swift; sourceTree = "<group>"; };
 		3F4046B92896F41F00A1A3E0 /* ShowRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRepository.swift; sourceTree = "<group>"; };
 		3F4046BC28970BD400A1A3E0 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		3F4046BE28970C6200A1A3E0 /* ShowEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEndpoint.swift; sourceTree = "<group>"; };
+		3F4046C028970DCF00A1A3E0 /* ShowListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +170,7 @@
 			children = (
 				3F4046B02896C2CE00A1A3E0 /* Extensions */,
 				3F4046AC2896175200A1A3E0 /* Views */,
-				3F4046AB28960AA600A1A3E0 /* ShowsList */,
+				3F4046AB28960AA600A1A3E0 /* ShowList */,
 				3F4046462895D08E00A1A3E0 /* AppDelegate.swift */,
 				3F4046482895D08E00A1A3E0 /* SceneDelegate.swift */,
 				3F40464F2895D09000A1A3E0 /* Assets.xcassets */,
@@ -206,14 +210,15 @@
 			path = AmazingNetworkTests;
 			sourceTree = "<group>";
 		};
-		3F4046AB28960AA600A1A3E0 /* ShowsList */ = {
+		3F4046AB28960AA600A1A3E0 /* ShowList */ = {
 			isa = PBXGroup;
 			children = (
 				3F4046BB28970BBC00A1A3E0 /* Service */,
 				3F4046B62896E8E900A1A3E0 /* View */,
-				3F40464A2895D08E00A1A3E0 /* ShowsListViewControllerViewController.swift */,
+				3F40464A2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift */,
+				3F4046C028970DCF00A1A3E0 /* ShowListInteractor.swift */,
 			);
-			path = ShowsList;
+			path = ShowList;
 			sourceTree = "<group>";
 		};
 		3F4046AC2896175200A1A3E0 /* Views */ = {
@@ -254,6 +259,7 @@
 			children = (
 				3F4046B92896F41F00A1A3E0 /* ShowRepository.swift */,
 				3F4046BC28970BD400A1A3E0 /* Show.swift */,
+				3F4046BE28970C6200A1A3E0 /* ShowEndpoint.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -433,12 +439,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F4046BA2896F41F00A1A3E0 /* ShowRepository.swift in Sources */,
-				3F40464B2895D08E00A1A3E0 /* ShowsListViewControllerViewController.swift in Sources */,
+				3F40464B2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift in Sources */,
+				3F4046C128970DCF00A1A3E0 /* ShowListInteractor.swift in Sources */,
 				3F4046472895D08E00A1A3E0 /* AppDelegate.swift in Sources */,
 				3F4046492895D08E00A1A3E0 /* SceneDelegate.swift in Sources */,
 				3F4046B82896E96800A1A3E0 /* ShowsListView.swift in Sources */,
 				3F4046AE289617FC00A1A3E0 /* ShowCollectionViewCell.swift in Sources */,
 				3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */,
+				3F4046BF28970C6200A1A3E0 /* ShowEndpoint.swift in Sources */,
 				3F4046B52896C42E00A1A3E0 /* UICollectionView+Reuser.swift in Sources */,
 				3F4046B32896C38800A1A3E0 /* Reusable.swift in Sources */,
 			);
