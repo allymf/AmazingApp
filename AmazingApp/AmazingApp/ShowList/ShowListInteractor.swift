@@ -11,7 +11,7 @@ protocol ShowListBusinessLogic {
     func fetchShows()
 }
 
-final class ShowListInteracor: ShowListBusinessLogic {
+final class ShowListInteractor: ShowListBusinessLogic {
     
     private let presenter: ShowListPresentationLogic
     private let showWorker: ShowRepositoryType

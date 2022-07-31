@@ -14,6 +14,8 @@ protocol ShowListPresentationLogic {
 
 final class ShowListPresenter: ShowListPresentationLogic {
     
+    weak var viewController: ShowListViewController?
+    
     func presentShows(response: ShowList.FetchShows.Response.Success) {
         
     }
