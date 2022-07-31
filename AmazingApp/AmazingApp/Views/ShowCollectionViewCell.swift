@@ -28,9 +28,11 @@ final class ShowCollectionViewCell: UICollectionViewCell {
             ofSize: 17,
             weight: .bold
         )
-        
         label.textColor = .black
         label.text = "Nome"
+        label.numberOfLines = 1
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
@@ -42,10 +44,11 @@ final class ShowCollectionViewCell: UICollectionViewCell {
             ofSize: 12,
             weight: .thin
         )
-        
         label.textColor = .black
-        
         label.text = "Genero, Genero"
+        label.numberOfLines = 2
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
@@ -53,7 +56,8 @@ final class ShowCollectionViewCell: UICollectionViewCell {
     private let descriptionStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 12
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 8
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -94,7 +98,7 @@ final class ShowCollectionViewCell: UICollectionViewCell {
     func constrainSubviews() {
         NSLayoutConstraint.activate(
             [
-                descriptionContainerView.heightAnchor.constraint(equalToConstant: 40),
+                descriptionContainerView.heightAnchor.constraint(equalToConstant: 50),
                 descriptionContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 descriptionContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 descriptionContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
@@ -103,10 +107,22 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate(
             [
-                descriptionStackView.topAnchor.constraint(equalTo: descriptionContainerView.topAnchor),
-                descriptionStackView.leadingAnchor.constraint(equalTo: descriptionContainerView.leadingAnchor),
-                descriptionStackView.trailingAnchor.constraint(equalTo: descriptionContainerView.trailingAnchor),
-                descriptionStackView.bottomAnchor.constraint(equalTo: descriptionContainerView.bottomAnchor)
+                descriptionStackView.topAnchor.constraint(
+                    equalTo: descriptionContainerView.topAnchor,
+                    constant: 8
+                ),
+                descriptionStackView.leadingAnchor.constraint(
+                    equalTo: descriptionContainerView.leadingAnchor,
+                    constant: 16
+                ),
+                descriptionStackView.trailingAnchor.constraint(
+                    equalTo: descriptionContainerView.trailingAnchor,
+                    constant: -16
+                ),
+                descriptionStackView.bottomAnchor.constraint(
+                    equalTo: descriptionContainerView.bottomAnchor,
+                    constant: -8
+                )
             ]
         )
         
