@@ -32,6 +32,8 @@
 		3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046BC28970BD400A1A3E0 /* Show.swift */; };
 		3F4046BF28970C6200A1A3E0 /* ShowEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046BE28970C6200A1A3E0 /* ShowEndpoint.swift */; };
 		3F4046C128970DCF00A1A3E0 /* ShowListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046C028970DCF00A1A3E0 /* ShowListInteractor.swift */; };
+		3F4046C3289711FB00A1A3E0 /* ShowListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046C2289711FB00A1A3E0 /* ShowListModels.swift */; };
+		3F4046C5289712A300A1A3E0 /* ShowListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046C4289712A300A1A3E0 /* ShowListPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		3F4046BC28970BD400A1A3E0 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		3F4046BE28970C6200A1A3E0 /* ShowEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEndpoint.swift; sourceTree = "<group>"; };
 		3F4046C028970DCF00A1A3E0 /* ShowListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListInteractor.swift; sourceTree = "<group>"; };
+		3F4046C2289711FB00A1A3E0 /* ShowListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListModels.swift; sourceTree = "<group>"; };
+		3F4046C4289712A300A1A3E0 /* ShowListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,8 @@
 				3F4046B62896E8E900A1A3E0 /* View */,
 				3F40464A2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift */,
 				3F4046C028970DCF00A1A3E0 /* ShowListInteractor.swift */,
+				3F4046C4289712A300A1A3E0 /* ShowListPresenter.swift */,
+				3F4046C2289711FB00A1A3E0 /* ShowListModels.swift */,
 			);
 			path = ShowList;
 			sourceTree = "<group>";
@@ -446,6 +452,8 @@
 				3F4046B82896E96800A1A3E0 /* ShowsListView.swift in Sources */,
 				3F4046AE289617FC00A1A3E0 /* ShowCollectionViewCell.swift in Sources */,
 				3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */,
+				3F4046C5289712A300A1A3E0 /* ShowListPresenter.swift in Sources */,
+				3F4046C3289711FB00A1A3E0 /* ShowListModels.swift in Sources */,
 				3F4046BF28970C6200A1A3E0 /* ShowEndpoint.swift in Sources */,
 				3F4046B52896C42E00A1A3E0 /* UICollectionView+Reuser.swift in Sources */,
 				3F4046B32896C38800A1A3E0 /* Reusable.swift in Sources */,
