@@ -11,7 +11,7 @@ final class ShowsListViewController: UIViewController {
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
         
-        activityIndicator.style = .large
+        activityIndicator.style = .medium
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         return activityIndicator
@@ -27,9 +27,19 @@ final class ShowsListViewController: UIViewController {
         )
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
-        collectionView.contentInsetAdjustmentBehavior = .always
+        
+        collectionView.contentInset = UIEdgeInsets(
+            top: 16,
+            left: 16,
+            bottom: 16,
+            right: 16
+        )
         
         collectionView.refreshControl = refreshControl
+        collectionView.register(ShowCollectionViewCell.self)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         return collectionView
     }()
@@ -41,6 +51,8 @@ final class ShowsListViewController: UIViewController {
         
         addSubviews()
         constrainSubviews()
+        
+        
     }
 
     func addSubviews() {
@@ -69,3 +81,42 @@ final class ShowsListViewController: UIViewController {
     
 }
 
+extension ShowsListViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            ShowCollectionViewCell.self,
+            for: indexPath
+        )
+        
+        return cell
+    }
+    
+    
+}
+
+extension ShowsListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let width = (collectionView.bounds.width/2) - 36
+        return CGSize(
+            width: width,
+            height: 200
+        )
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+}
