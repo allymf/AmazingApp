@@ -24,13 +24,10 @@ final class ShowCollectionViewCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(
-            ofSize: 17,
-            weight: .bold
-        )
+        label.font = Metrics.NameLabel.font
+        label.numberOfLines = Metrics.NameLabel.numberOfLines
         label.textColor = .black
         label.text = "Nome"
-        label.numberOfLines = 1
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -40,13 +37,10 @@ final class ShowCollectionViewCell: UICollectionViewCell {
     private let genreLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(
-            ofSize: 12,
-            weight: .thin
-        )
+        label.font = Metrics.GenreLabel.font
+        label.numberOfLines = Metrics.GenreLabel.numberOfLines
         label.textColor = .black
         label.text = "Genero, Genero"
-        label.numberOfLines = 2
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -57,7 +51,7 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
-        stackView.spacing = 8
+        stackView.spacing = Metrics.DescriptionStackView.verticalMargin
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -78,9 +72,10 @@ final class ShowCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
-        contentView.backgroundColor = .cyan
+        
         addSubviews()
         constrainSubviews()
+        additionalconfigurations()
     }
     
     required init?(coder: NSCoder) {
@@ -98,7 +93,7 @@ final class ShowCollectionViewCell: UICollectionViewCell {
     func constrainSubviews() {
         NSLayoutConstraint.activate(
             [
-                descriptionContainerView.heightAnchor.constraint(equalToConstant: 50),
+                descriptionContainerView.heightAnchor.constraint(equalToConstant: Metrics.DescriptionContainerView.height),
                 descriptionContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 descriptionContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 descriptionContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
@@ -109,19 +104,19 @@ final class ShowCollectionViewCell: UICollectionViewCell {
             [
                 descriptionStackView.topAnchor.constraint(
                     equalTo: descriptionContainerView.topAnchor,
-                    constant: 8
+                    constant: Metrics.DescriptionStackView.verticalMargin
                 ),
                 descriptionStackView.leadingAnchor.constraint(
                     equalTo: descriptionContainerView.leadingAnchor,
-                    constant: 16
+                    constant: Metrics.DescriptionStackView.horizontalMargin
                 ),
                 descriptionStackView.trailingAnchor.constraint(
                     equalTo: descriptionContainerView.trailingAnchor,
-                    constant: -16
+                    constant: -Metrics.DescriptionStackView.horizontalMargin
                 ),
                 descriptionStackView.bottomAnchor.constraint(
                     equalTo: descriptionContainerView.bottomAnchor,
-                    constant: -8
+                    constant: -Metrics.DescriptionStackView.verticalMargin
                 )
             ]
         )
@@ -134,5 +129,47 @@ final class ShowCollectionViewCell: UICollectionViewCell {
                 posterImageView.bottomAnchor.constraint(equalTo: descriptionContainerView.topAnchor)
             ]
         )
+    }
+    
+    func additionalconfigurations() {
+        contentView.backgroundColor = .systemGray2
+        contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = Metrics.ContentView.cornerRadius
+    }
+    
+}
+
+extension ShowCollectionViewCell {
+    enum Metrics {
+        
+        enum ContentView {
+            static let cornerRadius: CGFloat = 10
+        }
+        
+        enum NameLabel {
+            static let font = UIFont.systemFont(
+                ofSize: 17,
+                weight: .bold
+            )
+            static let numberOfLines = 1
+        }
+        
+        enum GenreLabel {
+            static let font = UIFont.systemFont(
+                ofSize: 12,
+                weight: .thin
+            )
+            static let numberOfLines = 2
+        }
+        
+        enum DescriptionStackView {
+            static let verticalMargin: CGFloat = 8
+            static let horizontalMargin: CGFloat = 16
+        }
+        
+        enum DescriptionContainerView {
+            static let height: CGFloat = 50
+        }
+        
     }
 }
