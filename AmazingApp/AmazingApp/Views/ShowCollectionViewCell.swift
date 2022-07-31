@@ -137,6 +137,24 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = Metrics.ContentView.cornerRadius
     }
     
+    public func updateData(with viewModel: ShowCellViewModel) {
+        nameLabel.text = viewModel.name
+        genreLabel.text = viewModel.genresText
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        nameLabel.text = String()
+        genreLabel.text = String()
+        posterImageView.image = UIImage()
+    }
+    
+    public struct ShowCellViewModel {
+        let name: String
+        let genresText: String
+        let posterPath: String
+    }
+    
 }
 
 extension ShowCollectionViewCell {

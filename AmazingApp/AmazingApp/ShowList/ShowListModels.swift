@@ -23,7 +23,7 @@ enum ShowList {
         
         enum ViewModel {
             struct Success {
-                let showViewModels: [ShowCellViewModel]
+                let showViewModels: [ShowCollectionViewCell.ShowCellViewModel]
             }
             struct Failure {
                 let error: NetworkLayerError
@@ -32,10 +32,4 @@ enum ShowList {
         
     }
     
-}
-
-struct ShowCellViewModel {
-    let name: String
-    let genresText: String
-    let posterPath: String
 }

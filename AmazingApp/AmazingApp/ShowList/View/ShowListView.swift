@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol ShowListViewProtocol: ViewInitializer {
-    func updateShowViewModels(_ showViewModels: [ShowCellViewModel])
+    func updateShowViewModels(_ showViewModels: [ShowCollectionViewCell.ShowCellViewModel])
     func renderLoadingState()
 }
 
@@ -49,7 +49,7 @@ final class ShowListView: UIView, ShowListViewProtocol {
     }()
     
     // MARK: - Properties
-    private var showViewModels = [ShowCellViewModel]()
+    private var showViewModels = [ShowCollectionViewCell.ShowCellViewModel]()
     
     // MARK: - Initialization
     override init(frame: CGRect = .zero) {
@@ -93,7 +93,7 @@ final class ShowListView: UIView, ShowListViewProtocol {
     }
     
     // MARK: - Public API
-    func updateShowViewModels(_ showViewModels: [ShowCellViewModel]) {
+    func updateShowViewModels(_ showViewModels: [ShowCollectionViewCell.ShowCellViewModel]) {
         self.showViewModels = showViewModels
         collectionView.isHidden = false
         activityIndicator.stopAnimating()
@@ -144,7 +144,9 @@ extension ShowListView: UICollectionViewDataSource {
             for: indexPath
         )
         
+        guard let viewModel = showViewModels[safeIndex: indexPath.item] else { return cell }
         
+        cell.updateData(with: viewModel)
         
         return cell
     }

@@ -27,7 +27,7 @@ final class ShowListPresenter: ShowListPresentationLogic {
         viewController?.displayFailureShows(viewModel: .init(error: response.error))
     }
     
-    private func makeShowCellViewModel(for show: Show) -> ShowCellViewModel {
+    private func makeShowCellViewModel(for show: Show) -> ShowCollectionViewCell.ShowCellViewModel {
         let genresText = show.genres?.joined(separator: ", ") ?? "Unknown"
         
         return .init(
