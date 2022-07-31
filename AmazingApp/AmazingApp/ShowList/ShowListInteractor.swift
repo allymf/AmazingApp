@@ -18,7 +18,7 @@ final class ShowListInteractor: ShowListBusinessLogic {
     private var currentShowListPage = 0
     
     init(
-        presenter: ShowListPresentationLogic = ShowListPresenter(),
+        presenter: ShowListPresentationLogic,
         showWorker: ShowRepositoryType = ShowRepository()
     ) {
         self.presenter = presenter

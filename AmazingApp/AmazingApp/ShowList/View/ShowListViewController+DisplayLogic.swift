@@ -14,7 +14,9 @@ protocol ShowListDisplayLogic: AnyObject {
 
 extension ShowListViewController: ShowListDisplayLogic {
     func displayShows(viewModel: ShowList.FetchShows.ViewModel.Success) {
-        
+        DispatchQueue.main.async {
+            self.viewProtocol.updateShowViewModels(viewModel.showViewModels)
+        }
     }
     func displayFailureShows(viewModel: ShowList.FetchShows.ViewModel.Failure) {}
 }

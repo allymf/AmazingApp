@@ -7,7 +7,13 @@
 
 import UIKit
 
-final class ShowListView: UIView {
+
+protocol ShowListViewProtocol: ViewInitializer {
+    func updateShowViewModels(_ showViewModels: [ShowCellViewModel])
+    func renderLoadingState()
+}
+
+final class ShowListView: UIView, ShowListViewProtocol {
     
     // MARK: - Components
     private let activityIndicator: UIActivityIndicatorView = {
@@ -41,7 +47,11 @@ final class ShowListView: UIView {
         
         return collectionView
     }()
-
+    
+    // MARK: - Properties
+    private var showViewModels = [ShowCellViewModel]()
+    
+    // MARK: - Initialization
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
@@ -54,6 +64,7 @@ final class ShowListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - CodedView methods
     func addSubviews() {
         addSubview(activityIndicator)
         addSubview(collectionView)
@@ -80,6 +91,20 @@ final class ShowListView: UIView {
     func additionalConfigurations() {
         backgroundColor = .systemGray4
     }
+    
+    // MARK: - Public API
+    func updateShowViewModels(_ showViewModels: [ShowCellViewModel]) {
+        self.showViewModels = showViewModels
+        collectionView.isHidden = false
+        activityIndicator.stopAnimating()
+        collectionView.reloadData()
+    }
+    
+    func renderLoadingState() {
+        collectionView.isHidden = true
+        activityIndicator.startAnimating()
+    }
+
 
 }
 
@@ -107,7 +132,7 @@ extension ShowListView: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 20
+        return showViewModels.count
     }
     
     func collectionView(
@@ -118,6 +143,8 @@ extension ShowListView: UICollectionViewDataSource {
             ShowCollectionViewCell.self,
             for: indexPath
         )
+        
+        
         
         return cell
     }

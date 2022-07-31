@@ -8,9 +8,14 @@ import UIKit
 
 final class ShowListViewController: UIViewController {
     
+    let viewProtocol: ShowListViewProtocol
     private let interactor: ShowListBusinessLogic
     
-    init(interactor: ShowListBusinessLogic = ShowListInteractor()) {
+    init(
+        viewProtocol: ShowListViewProtocol = ShowListView(),
+        interactor: ShowListBusinessLogic
+    ) {
+        self.viewProtocol = viewProtocol
         self.interactor = interactor
         super.init(
             nibName: nil,
@@ -23,11 +28,12 @@ final class ShowListViewController: UIViewController {
     }
     
     override func loadView() {
-        view = ShowListView()
+        view = viewProtocol.concreteView
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewProtocol.renderLoadingState()
         interactor.fetchShows()
     }
     
