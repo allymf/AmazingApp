@@ -21,6 +21,21 @@ enum ShowList {
             }
         }
         
+        enum ViewModel {
+            struct Success {
+                let showViewModels: [ShowCellViewModel]
+            }
+            struct Failure {
+                let error: NetworkLayerError
+            }
+        }
+        
     }
     
+}
+
+struct ShowCellViewModel {
+    let name: String
+    let genresText: String
+    let posterPath: String
 }

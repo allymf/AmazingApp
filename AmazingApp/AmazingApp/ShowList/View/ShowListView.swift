@@ -1,5 +1,5 @@
 //
-//  ShowsListView.swift
+//  ShowListView.swift
 //  AmazingApp
 //
 //  Created by Alysson on 31/07/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ShowsListView: UIView {
+final class ShowListView: UIView {
     
     // MARK: - Components
     private let activityIndicator: UIActivityIndicatorView = {
@@ -83,7 +83,7 @@ final class ShowsListView: UIView {
 
 }
 
-extension ShowsListView {
+extension ShowListView {
     enum Metrics {
         enum CollectionView {
             static let contentInset = UIEdgeInsets(
@@ -101,7 +101,7 @@ extension ShowsListView {
     }
 }
 
-extension ShowsListView: UICollectionViewDataSource {
+extension ShowListView: UICollectionViewDataSource {
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -125,7 +125,7 @@ extension ShowsListView: UICollectionViewDataSource {
     
 }
 
-extension ShowsListView: UICollectionViewDelegateFlowLayout {
+extension ShowListView: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,

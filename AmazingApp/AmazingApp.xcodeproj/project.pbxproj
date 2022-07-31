@@ -27,7 +27,7 @@
 		3F4046AE289617FC00A1A3E0 /* ShowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046AD289617FC00A1A3E0 /* ShowCollectionViewCell.swift */; };
 		3F4046B32896C38800A1A3E0 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046B22896C38800A1A3E0 /* Reusable.swift */; };
 		3F4046B52896C42E00A1A3E0 /* UICollectionView+Reuser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046B42896C42E00A1A3E0 /* UICollectionView+Reuser.swift */; };
-		3F4046B82896E96800A1A3E0 /* ShowsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046B72896E96800A1A3E0 /* ShowsListView.swift */; };
+		3F4046B82896E96800A1A3E0 /* ShowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046B72896E96800A1A3E0 /* ShowListView.swift */; };
 		3F4046BA2896F41F00A1A3E0 /* ShowRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046B92896F41F00A1A3E0 /* ShowRepository.swift */; };
 		3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046BC28970BD400A1A3E0 /* Show.swift */; };
 		3F4046BF28970C6200A1A3E0 /* ShowEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046BE28970C6200A1A3E0 /* ShowEndpoint.swift */; };
@@ -35,6 +35,7 @@
 		3F4046C3289711FB00A1A3E0 /* ShowListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046C2289711FB00A1A3E0 /* ShowListModels.swift */; };
 		3F4046C5289712A300A1A3E0 /* ShowListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046C4289712A300A1A3E0 /* ShowListPresenter.swift */; };
 		3F4046C72897147E00A1A3E0 /* ShowListSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046C62897147E00A1A3E0 /* ShowListSceneFactory.swift */; };
+		3F4046C92897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046C82897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +106,7 @@
 		3F4046AD289617FC00A1A3E0 /* ShowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionViewCell.swift; sourceTree = "<group>"; };
 		3F4046B22896C38800A1A3E0 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		3F4046B42896C42E00A1A3E0 /* UICollectionView+Reuser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reuser.swift"; sourceTree = "<group>"; };
-		3F4046B72896E96800A1A3E0 /* ShowsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsListView.swift; sourceTree = "<group>"; };
+		3F4046B72896E96800A1A3E0 /* ShowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListView.swift; sourceTree = "<group>"; };
 		3F4046B92896F41F00A1A3E0 /* ShowRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRepository.swift; sourceTree = "<group>"; };
 		3F4046BC28970BD400A1A3E0 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		3F4046BE28970C6200A1A3E0 /* ShowEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowEndpoint.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		3F4046C2289711FB00A1A3E0 /* ShowListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListModels.swift; sourceTree = "<group>"; };
 		3F4046C4289712A300A1A3E0 /* ShowListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListPresenter.swift; sourceTree = "<group>"; };
 		3F4046C62897147E00A1A3E0 /* ShowListSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListSceneFactory.swift; sourceTree = "<group>"; };
+		3F4046C82897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowListViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,8 +259,9 @@
 		3F4046B62896E8E900A1A3E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3F4046B72896E96800A1A3E0 /* ShowsListView.swift */,
+				3F4046B72896E96800A1A3E0 /* ShowListView.swift */,
 				3F40464A2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift */,
+				3F4046C82897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -452,7 +455,8 @@
 				3F4046C128970DCF00A1A3E0 /* ShowListInteractor.swift in Sources */,
 				3F4046472895D08E00A1A3E0 /* AppDelegate.swift in Sources */,
 				3F4046492895D08E00A1A3E0 /* SceneDelegate.swift in Sources */,
-				3F4046B82896E96800A1A3E0 /* ShowsListView.swift in Sources */,
+				3F4046B82896E96800A1A3E0 /* ShowListView.swift in Sources */,
+				3F4046C92897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift in Sources */,
 				3F4046AE289617FC00A1A3E0 /* ShowCollectionViewCell.swift in Sources */,
 				3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */,
 				3F4046C5289712A300A1A3E0 /* ShowListPresenter.swift in Sources */,

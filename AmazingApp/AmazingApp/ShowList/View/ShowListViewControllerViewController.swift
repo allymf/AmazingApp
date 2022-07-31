@@ -23,7 +23,7 @@ final class ShowListViewController: UIViewController {
     }
     
     override func loadView() {
-        view = ShowsListView()
+        view = ShowListView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
