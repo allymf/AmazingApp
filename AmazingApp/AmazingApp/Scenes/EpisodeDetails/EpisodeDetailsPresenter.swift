@@ -19,7 +19,7 @@ final class EpisodeDetailsPresenter: EpisodeDetailsPresentationLogic {
             posterPath: response.episode.image?.original ?? "",
             name: response.episode.name ?? "",
             seasonAndEpisodeNumberText: makeSeasonAndEpisodeNumberText(from: response.episode),
-            summary: response.episode.summary ?? ""
+            summary: response.episode.summary?.removeHTMLMarks() ?? ""
         )
         
         viewController?.displayEpisodeDetails(viewModel: .init(episodeViewModel: episodeViewModel))

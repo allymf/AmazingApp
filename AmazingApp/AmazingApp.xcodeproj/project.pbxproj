@@ -75,6 +75,7 @@
 		3F5A5D7A289881CF0016D767 /* EpisodeDetailsViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D79289881CF0016D767 /* EpisodeDetailsViewController+DisplayLogic.swift */; };
 		3F5A5D7C289881E90016D767 /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D7B289881E90016D767 /* EpisodeDetailsView.swift */; };
 		3F5A5D7F289883B50016D767 /* EpisodeDetailsSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D7E289883B50016D767 /* EpisodeDetailsSceneFactory.swift */; };
+		3F5A5D8128988A000016D767 /* String+RemoveHTMLMarkups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D8028988A000016D767 /* String+RemoveHTMLMarkups.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,10 +185,8 @@
 		3F5A5D692898661D0016D767 /* ShowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsView.swift; sourceTree = "<group>"; };
 		3F5A5D6B289868E60016D767 /* EntityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTableViewCell.swift; sourceTree = "<group>"; };
 		3F5A5D6D289869170016D767 /* UITableView+Reuser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuser.swift"; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		3F5A5D8428989C110016D767 /* EntityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDetailsView.swift; sourceTree = "<group>"; };
 		3F5A5D862898A3F70016D767 /* String+RemoveHTMLMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveHTMLMarks.swift"; sourceTree = "<group>"; };
-=======
 		3F5A5D71289881800016D767 /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
 		3F5A5D732898819C0016D767 /* EpisodeDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsInteractor.swift; sourceTree = "<group>"; };
 		3F5A5D75289881A90016D767 /* EpisodeDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -195,7 +194,6 @@
 		3F5A5D79289881CF0016D767 /* EpisodeDetailsViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EpisodeDetailsViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
 		3F5A5D7B289881E90016D767 /* EpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsView.swift; sourceTree = "<group>"; };
 		3F5A5D7E289883B50016D767 /* EpisodeDetailsSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsSceneFactory.swift; sourceTree = "<group>"; };
->>>>>>> d8ab5e9 (feat(episodeDetails): Create EpisodeDetails scene)
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +678,7 @@
 				3F5A5D5D289827640016D767 /* ShowDetailsViewController+DisplayLogic.swift in Sources */,
 				3F5A5D872898A3F70016D767 /* String+RemoveHTMLMarks.swift in Sources */,
 				3F5A5D6E289869170016D767 /* UITableView+Reuser.swift in Sources */,
+				3F5A5D8128988A000016D767 /* String+RemoveHTMLMarkups.swift in Sources */,
 				3F5A5D742898819C0016D767 /* EpisodeDetailsInteractor.swift in Sources */,
 				3F4046C5289712A300A1A3E0 /* ShowListPresenter.swift in Sources */,
 				3F5A5D52289781BE0016D767 /* ShowListRouter.swift in Sources */,
