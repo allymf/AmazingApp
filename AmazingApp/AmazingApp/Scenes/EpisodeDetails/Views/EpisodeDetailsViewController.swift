@@ -33,4 +33,10 @@ final class EpisodeDetailsViewController: UIViewController {
         view = viewProtocol.concreteView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        interactor.fetchEpisodeDetails()
+    }
+    
 }

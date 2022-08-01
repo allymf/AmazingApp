@@ -22,10 +22,10 @@ enum EpisodeDetails {
         }
     }
     
-    struct EpisodeViewModel {
+    struct EpisodeViewModel: EpisodeDetailsViewModel {
         let posterPath: String
         let name: String
-        let seasonAndNumberText: String
+        let seasonAndEpisodeNumberText: String
         let summary: String
     }
     

@@ -7,8 +7,12 @@
 
 import Foundation
 
-protocol EpisodeDetailsDisplayLogic: AnyObject {}
+protocol EpisodeDetailsDisplayLogic: AnyObject {
+    func displayEpisodeDetails(viewModel: EpisodeDetails.FetchEpisodeDetails.ViewModel.Success)
+}
 
 extension EpisodeDetailsViewController: EpisodeDetailsDisplayLogic {
-    
+    func displayEpisodeDetails(viewModel: EpisodeDetails.FetchEpisodeDetails.ViewModel.Success) {
+        viewProtocol.viewModel = viewModel.episodeViewModel
+    }
 }

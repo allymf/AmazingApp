@@ -8,8 +8,17 @@
 import Foundation
 import UIKit
 
-protocol EpisodeDetailsViewProtocol: ViewInitializer {}
+protocol EpisodeDetailsViewModel {
+    var posterPath: String { get }
+    var name: String { get }
+    var seasonAndEpisodeNumberText: String { get }
+    var summary: String { get }
+}
+
+protocol EpisodeDetailsViewProtocol: ViewInitializer {
+    var viewModel: EpisodeDetailsViewModel? { get set }
+}
 
 final class EpisodeDetailsView: UIView, EpisodeDetailsViewProtocol {
-    
+    var viewModel: EpisodeDetailsViewModel?
 }
