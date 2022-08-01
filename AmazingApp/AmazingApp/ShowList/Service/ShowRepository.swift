@@ -13,6 +13,8 @@ protocol ShowRepositoryType {
         page: Int,
         completionHandler: @escaping (Result<[Show], NetworkLayerError>) -> Void
     )
+    
+    func cancelCurrentRequest()
 }
 
 final class ShowRepository: ShowRepositoryType {
@@ -34,5 +36,8 @@ final class ShowRepository: ShowRepositoryType {
         )
     }
     
+    func cancelCurrentRequest() {
+        httpClient.cancelCurrentTask()
+    }
     
 }
