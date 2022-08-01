@@ -60,6 +60,9 @@
 		3F5A5D5D289827640016D767 /* ShowDetailsViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D5C289827640016D767 /* ShowDetailsViewController+DisplayLogic.swift */; };
 		3F5A5D5F289827C10016D767 /* ShowDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D5E289827C10016D767 /* ShowDetailsModels.swift */; };
 		3F5A5D61289827FB0016D767 /* ShowDetailsSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D60289827FB0016D767 /* ShowDetailsSceneFactory.swift */; };
+		3F5A5D6428982AA90016D767 /* EpisodeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6328982AA90016D767 /* EpisodeEndpoint.swift */; };
+		3F5A5D6628983E400016D767 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6528983E400016D767 /* Episode.swift */; };
+		3F5A5D6828983F8E0016D767 /* EpisodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6728983F8E0016D767 /* EpisodeRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +166,9 @@
 		3F5A5D5C289827640016D767 /* ShowDetailsViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowDetailsViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
 		3F5A5D5E289827C10016D767 /* ShowDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsModels.swift; sourceTree = "<group>"; };
 		3F5A5D60289827FB0016D767 /* ShowDetailsSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsSceneFactory.swift; sourceTree = "<group>"; };
+		3F5A5D6328982AA90016D767 /* EpisodeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeEndpoint.swift; sourceTree = "<group>"; };
+		3F5A5D6528983E400016D767 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		3F5A5D6728983F8E0016D767 /* EpisodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,6 +400,7 @@
 		3F5A5D552898257D0016D767 /* ShowDetails */ = {
 			isa = PBXGroup;
 			children = (
+				3F5A5D6228982A980016D767 /* Service */,
 				3F5A5D56289825940016D767 /* ShowDetailsViewController.swift */,
 				3F5A5D58289825D10016D767 /* ShowDetailsInteractor.swift */,
 				3F5A5D5A289826E10016D767 /* ShowDetailsPresenter.swift */,
@@ -402,6 +409,16 @@
 				3F5A5D60289827FB0016D767 /* ShowDetailsSceneFactory.swift */,
 			);
 			path = ShowDetails;
+			sourceTree = "<group>";
+		};
+		3F5A5D6228982A980016D767 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3F5A5D6328982AA90016D767 /* EpisodeEndpoint.swift */,
+				3F5A5D6528983E400016D767 /* Episode.swift */,
+				3F5A5D6728983F8E0016D767 /* EpisodeRepository.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -579,6 +596,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F166E4F28977F32001BAA81 /* SearchViewController+DisplayLogic.swift in Sources */,
+				3F5A5D6828983F8E0016D767 /* EpisodeRepository.swift in Sources */,
 				3F166E3B28977EC5001BAA81 /* SearchPresenter.swift in Sources */,
 				3F4046BA2896F41F00A1A3E0 /* ShowRepository.swift in Sources */,
 				3F4046C128970DCF00A1A3E0 /* ShowListInteractor.swift in Sources */,
@@ -605,6 +623,7 @@
 				3F5A5D54289782F50016D767 /* AmazingImageViewFactory.swift in Sources */,
 				3F166E4B28977F32001BAA81 /* SearchEndpoint.swift in Sources */,
 				3F4046C72897147E00A1A3E0 /* ShowListSceneFactory.swift in Sources */,
+				3F5A5D6628983E400016D767 /* Episode.swift in Sources */,
 				3F166E252897699E001BAA81 /* AmazingImageViewInteractor.swift in Sources */,
 				3F166E4A28977F32001BAA81 /* SearchRepository.swift in Sources */,
 				3F166E2928976A5C001BAA81 /* AmazingImageViewModels.swift in Sources */,
@@ -612,6 +631,7 @@
 				3F166E27289769FD001BAA81 /* AmazingImageViewPresenter.swift in Sources */,
 				3F166E4E28977F32001BAA81 /* SearchView.swift in Sources */,
 				3F4046B32896C38800A1A3E0 /* Reusable.swift in Sources */,
+				3F5A5D6428982AA90016D767 /* EpisodeEndpoint.swift in Sources */,
 				3F166E2B28976E85001BAA81 /* AmazingImageView.swift in Sources */,
 				3F166E51289780ED001BAA81 /* ShowListViewController.swift in Sources */,
 				3F4046CC28972E0600A1A3E0 /* ViewInitializer.swift in Sources */,

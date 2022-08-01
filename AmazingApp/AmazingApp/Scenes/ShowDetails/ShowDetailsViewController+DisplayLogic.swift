@@ -7,6 +7,12 @@
 
 import Foundation
 
-protocol ShowDetailsDisplayLogic: AnyObject {}
+protocol ShowDetailsDisplayLogic: AnyObject {
+    func displayShowDetails(viewModel: ShowDetails.FetchShowDetail.ViewModel.Success)
+}
 
-extension ShowDetailsViewController: ShowDetailsDisplayLogic {}
+extension ShowDetailsViewController: ShowDetailsDisplayLogic {
+    func displayShowDetails(viewModel: ShowDetails.FetchShowDetail.ViewModel.Success) {
+        
+    }
+}
