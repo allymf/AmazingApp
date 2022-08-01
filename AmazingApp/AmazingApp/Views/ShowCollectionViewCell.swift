@@ -27,7 +27,6 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         label.font = Metrics.NameLabel.font
         label.numberOfLines = Metrics.NameLabel.numberOfLines
         label.textColor = .black
-        label.text = "Nome"
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -40,7 +39,6 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         label.font = Metrics.GenreLabel.font
         label.numberOfLines = Metrics.GenreLabel.numberOfLines
         label.textColor = .black
-        label.text = "Genero, Genero"
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -68,7 +66,20 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    
+    private let ratingLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = Metrics.NameLabel.font
+        label.numberOfLines = Metrics.NameLabel.numberOfLines
+        label.backgroundColor = .white
+        label.layer.cornerRadius = Metrics.ContentView.cornerRadius
+        label.textColor = .black
+        label.text = " ⭑ 4.5 "
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -85,6 +96,7 @@ final class ShowCollectionViewCell: UICollectionViewCell {
     func addSubviews() {
         contentView.addSubview(posterImageView)
         contentView.addSubview(descriptionContainerView)
+        contentView.addSubview(ratingLabel)
         descriptionContainerView.addSubview(descriptionStackView)
         descriptionStackView.addArrangedSubview(nameLabel)
         descriptionStackView.addArrangedSubview(genreLabel)
@@ -93,7 +105,7 @@ final class ShowCollectionViewCell: UICollectionViewCell {
     func constrainSubviews() {
         NSLayoutConstraint.activate(
             [
-                descriptionContainerView.heightAnchor.constraint(equalToConstant: Metrics.DescriptionContainerView.height),
+                descriptionStackView.topAnchor.constraint(equalTo: posterImageView.bottomAnchor),
                 descriptionContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 descriptionContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 descriptionContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
@@ -123,10 +135,23 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate(
             [
+                ratingLabel.topAnchor.constraint(
+                    equalTo: posterImageView.topAnchor,
+                    constant: Metrics.RatingLabel.verticalMargin
+                ),
+                ratingLabel.leadingAnchor.constraint(
+                    equalTo: posterImageView.leadingAnchor,
+                    constant: Metrics.RatingLabel.horizontalMargin
+                ),
+            ]
+        )
+        
+        NSLayoutConstraint.activate(
+            [
                 posterImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
                 posterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 posterImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                posterImageView.bottomAnchor.constraint(equalTo: descriptionContainerView.topAnchor)
+                posterImageView.heightAnchor.constraint(equalToConstant: Metrics.PosterImageView.height)
             ]
         )
     }
@@ -135,11 +160,15 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = .systemGray2
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = Metrics.ContentView.cornerRadius
+        
+        ratingLabel.clipsToBounds = true
+        ratingLabel.layer.cornerRadius = Metrics.RatingLabel.cornerRadius
     }
     
     public func updateData(with viewModel: ShowCellViewModel) {
         nameLabel.text = viewModel.name
         genreLabel.text = viewModel.genresText
+        ratingLabel.text = viewModel.ratingText
     }
     
     override func prepareForReuse() {
@@ -147,12 +176,14 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         nameLabel.text = String()
         genreLabel.text = String()
         posterImageView.image = UIImage()
+        ratingLabel.text = String()
     }
     
     public struct ShowCellViewModel {
         let name: String
         let genresText: String
         let posterPath: String
+        let ratingText: String
     }
     
 }
@@ -180,13 +211,24 @@ extension ShowCollectionViewCell {
             static let numberOfLines = 2
         }
         
-        enum DescriptionStackView {
-            static let verticalMargin: CGFloat = 8
-            static let horizontalMargin: CGFloat = 16
+        enum PosterImageView {
+            static let height: CGFloat = 220
         }
         
-        enum DescriptionContainerView {
-            static let height: CGFloat = 50
+        enum RatingLabel {
+            static let font = UIFont.systemFont(
+                ofSize: 14,
+                weight: .medium
+            )
+            static let numberOfLines = 1
+            static let cornerRadius: CGFloat = 6
+            static let verticalMargin: CGFloat = 8
+            static let horizontalMargin: CGFloat = 8
+        }
+        
+        enum DescriptionStackView {
+            static let verticalMargin: CGFloat = 8
+            static let horizontalMargin: CGFloat = 8
         }
         
     }
