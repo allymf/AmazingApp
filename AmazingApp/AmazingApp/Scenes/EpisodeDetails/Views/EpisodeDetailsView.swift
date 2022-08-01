@@ -38,6 +38,13 @@ final class EpisodeDetailsView: UIView, EpisodeDetailsViewProtocol {
         return view
     }()
     
+    private let sampleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var viewModel: EpisodeDetailsViewModel?
     
     override init(frame: CGRect = .zero) {
@@ -54,6 +61,7 @@ final class EpisodeDetailsView: UIView, EpisodeDetailsViewProtocol {
     func addSubviews() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
+        contentView.addSubview(sampleView)
     }
     
     func constrainSubviews() {
@@ -72,6 +80,15 @@ final class EpisodeDetailsView: UIView, EpisodeDetailsViewProtocol {
                 contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
                 contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
                 contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            ]
+        )
+        
+        NSLayoutConstraint.activate(
+            [
+                contentView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                contentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                contentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                contentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ]
         )
     }

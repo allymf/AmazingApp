@@ -27,7 +27,7 @@ enum ShowDetails {
     enum FetchShowSeasons {
         enum Response {
             struct Success {
-                let episodes: [Episode]
+                let seasons: [Season]
             }
             struct Failure {
                 let error: NetworkLayerError
@@ -45,13 +45,28 @@ enum ShowDetails {
         }
     }
     
-    struct ShowDetailHeaderViewModel: EntityDetailsViewModel {
+    enum SelectEpisode {
+        struct Request {
+            let indexPath: IndexPath
+        }
+    }
+    
+    struct Actions: ShowDetailsViewActions {
+        let didSelectRowAt: (IndexPath) -> Void
+    }
+    
+    struct ShowDetailHeaderViewModel {
         let iconPath: String
         let bannerPath: String
         let name: String
         let timeText: String
         let genresText: String
         let summary: String
+    }
+    
+    struct Season {
+        let number: Int
+        var episodes: [Episode]
     }
     
     struct SeasonViewModel {

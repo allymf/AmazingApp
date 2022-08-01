@@ -14,9 +14,14 @@ struct ShowDetailsSceneFactory {
             presenter: presenter,
             show: show
         )
-        let viewController = ShowDetailsViewController(interactor: interactor)
+        let router = ShowDetailsRouter(dataStore: interactor)
+        let viewController = ShowDetailsViewController(
+            interactor: interactor,
+            router: router
+        )
         
         presenter.viewController = viewController
+        router.viewController = viewController
         
         return viewController
     }

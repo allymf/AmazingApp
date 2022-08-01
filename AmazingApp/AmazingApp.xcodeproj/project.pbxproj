@@ -76,6 +76,7 @@
 		3F5A5D7C289881E90016D767 /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D7B289881E90016D767 /* EpisodeDetailsView.swift */; };
 		3F5A5D7F289883B50016D767 /* EpisodeDetailsSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D7E289883B50016D767 /* EpisodeDetailsSceneFactory.swift */; };
 		3F5A5D8128988A000016D767 /* String+RemoveHTMLMarkups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D8028988A000016D767 /* String+RemoveHTMLMarkups.swift */; };
+		3F5A5D83289895B70016D767 /* ShowDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D82289895B70016D767 /* ShowDetailsRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -436,6 +437,7 @@
 				3F5A5D5A289826E10016D767 /* ShowDetailsPresenter.swift */,
 				3F5A5D5E289827C10016D767 /* ShowDetailsModels.swift */,
 				3F5A5D60289827FB0016D767 /* ShowDetailsSceneFactory.swift */,
+				3F5A5D82289895B70016D767 /* ShowDetailsRouter.swift */,
 			);
 			path = ShowDetails;
 			sourceTree = "<group>";
@@ -666,6 +668,7 @@
 				3F166E3E28977EC5001BAA81 /* SearchModels.swift in Sources */,
 				3F5A5D7F289883B50016D767 /* EpisodeDetailsSceneFactory.swift in Sources */,
 				3F4046472895D08E00A1A3E0 /* AppDelegate.swift in Sources */,
+				3F5A5D83289895B70016D767 /* ShowDetailsRouter.swift in Sources */,
 				3F4046492895D08E00A1A3E0 /* SceneDelegate.swift in Sources */,
 				3F4046B82896E96800A1A3E0 /* ShowListView.swift in Sources */,
 				3F4046C92897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift in Sources */,
