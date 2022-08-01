@@ -57,13 +57,14 @@ enum ShowDetails {
     struct SeasonViewModel {
         let seasonTitle: String
         let number: Int
-        let episodes: [EpisodeViewModel]
+        var episodes: [EpisodeViewModel]
     }
     
     struct EpisodeViewModel {
         let posterPath: String
         let name: String
         let number: String
+        let season: Int
         let summary: String
     }
     

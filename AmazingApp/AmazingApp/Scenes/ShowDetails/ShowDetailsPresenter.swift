@@ -33,10 +33,46 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
     }
     
     func presentShowSeasons(response: ShowDetails.FetchShowSeasons.Response.Success) {
-        
+        let seasonsViewModel = makeSeasonsViewModel(with: response.episodes)
+        viewController?.displayShowSeasons(viewModel: .init(seasonViewModels: seasonsViewModel))
     }
     
-    func presentShowSeasonsFailure(response: ShowDetails.FetchShowSeasons.Response.Failure) {}
+    func presentShowSeasonsFailure(response: ShowDetails.FetchShowSeasons.Response.Failure) {
+        viewController?.displayShowSeasonsFailure(viewModel: .init(error: response.error))
+    }
+    
+    private func makeSeasonsViewModel(with episodes: [Episode]) -> ShowDetails.SeasonViewModel {
+        let episodeViewModels = episodes.map { makeEpisodeViewModel(from: $0) }
+        
+        let seasons: [ShowDetails.SeasonViewModel] = episodeViewModels.reduce([]) { partialResult, episodeViewModel in
+            guard let episodeSeasonNumber = episode.season else { return partialResult }
+            
+            guard let existingSeason = partialResult.first(where: { $0.number == episodeSeasonNumber }) else {
+                let newSeasonViewModel = ShowDetails.SeasonViewModel(
+                    seasonTitle: "Season \(episodeSeasonNumber)",
+                    number: episodeSeasonNumber,
+                    episodes: [episode]
+                )
+                partialResult.append(newSeasonViewModel)
+                return partialResult
+            }
+            
+            existingSeason.episodes.append(episode)
+            return partialResult
+        }
+        
+        return seasons
+    }
+    
+    private makeEpisodeViewModel(from episode: Episode) -> ShowDetails.EpisodeViewModel {
+        return .init(
+            posterPath: episode.image?.medium ?? String(),
+            name: episode.name ?? String(),
+            number: episode.number ?? String(),
+            season: episode.season ?? 0,
+            summary: episode.summary ?? String()
+        )
+    }
     
     private func makeScheduleText(for schedule: Show.Schedule?) -> String {
         guard let schedule = schedule else {

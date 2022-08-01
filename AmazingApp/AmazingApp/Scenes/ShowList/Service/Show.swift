@@ -39,7 +39,7 @@ struct Show: Decodable {
                 saturday = "Saturday",
                 sunday = "Sunday"
             
-            var abbreviation: String { self.rawValue.prefix(3) }
+            var abbreviation: String { String(self.rawValue.prefix(3))}
         }
     }
     

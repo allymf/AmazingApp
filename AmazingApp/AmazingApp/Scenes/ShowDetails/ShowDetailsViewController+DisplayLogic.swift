@@ -9,10 +9,17 @@ import Foundation
 
 protocol ShowDetailsDisplayLogic: AnyObject {
     func displayShowDetails(viewModel: ShowDetails.FetchShowDetail.ViewModel.Success)
+    func displayShowSeasons(viewModel: ShowDetails.FetchShowSeasons.ViewModel.Success)
+    func displayShowSeasonsFailure(viewModel: ShowDetails.FetchShowSeasons.ViewModel.Failure)
 }
 
 extension ShowDetailsViewController: ShowDetailsDisplayLogic {
     func displayShowDetails(viewModel: ShowDetails.FetchShowDetail.ViewModel.Success) {
         
     }
+    
+    func displayShowSeasons(viewModel: ShowDetails.FetchShowSeasons.ViewModel.Success) {}
+    
+    func displayShowSeasonsFailure(viewModel: ShowDetails.FetchShowSeasons.ViewModel.Failure) {}
+    
 }
