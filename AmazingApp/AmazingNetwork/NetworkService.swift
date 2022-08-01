@@ -20,10 +20,15 @@ public enum NetworkLayerError: Error {
 }
 
 public protocol HTTPClient {
+    func request(
+        absolutePath: String,
+        completionHandler: @escaping (Result<Data, NetworkLayerError>) -> Void
+    )
+    
     func request<Response: Decodable>(
         endpoint: Endpoint,
         responseType: Response.Type,
-        completionHandler: @escaping (Result<(Response), NetworkLayerError>) -> Void
+        completionHandler: @escaping (Result<Response, NetworkLayerError>) -> Void
     )
     
     func cancelCurrentTask()
@@ -46,10 +51,29 @@ public final class NetworkService: HTTPClient {
         self.decoder = decoder
     }
     
+    public func request(
+        absolutePath: String,
+        completionHandler: @escaping (Result<Data, NetworkLayerError>) -> Void
+    ) {
+        guard let url = URL(string: absolutePath) else {
+            completionHandler(.failure(NetworkLayerError.unableToCreateURL))
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url)
+        
+        task = session.dataTask(with: urlRequest) { response in
+            let result = self.handleRequestResponse(response)
+            completionHandler(result)
+        }
+        
+        task?.resume()
+    }
+    
     public func request<Response: Decodable>(
         endpoint: Endpoint,
         responseType: Response.Type,
-        completionHandler: @escaping (Result<(Response), NetworkLayerError>) -> Void
+        completionHandler: @escaping (Result<Response, NetworkLayerError>) -> Void
     ) {
         do {
             let request = try requestBuilder.buildRequest(for: endpoint)

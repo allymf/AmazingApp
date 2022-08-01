@@ -59,7 +59,6 @@ final class ShowListInteractor: ShowListBusinessLogic {
     func fetchNextShowsPage(request: ShowList.FetchNextPage.Request) {
         guard notOnLastPage, !isFetchingData, shouldFetchNextPage(for: request.indexPaths) else { return }
         currentShowListPage += 1
-        showWorker.cancelCurrentRequest()
         fetchShows()
     }
     

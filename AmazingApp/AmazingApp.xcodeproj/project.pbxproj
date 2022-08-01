@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F166E252897699E001BAA81 /* AmazingImageViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E242897699E001BAA81 /* AmazingImageViewInteractor.swift */; };
+		3F166E27289769FD001BAA81 /* AmazingImageViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E26289769FD001BAA81 /* AmazingImageViewPresenter.swift */; };
+		3F166E2928976A5C001BAA81 /* AmazingImageViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E2828976A5C001BAA81 /* AmazingImageViewModels.swift */; };
+		3F166E2B28976E85001BAA81 /* AmazingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E2A28976E85001BAA81 /* AmazingImageView.swift */; };
 		3F4046472895D08E00A1A3E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046462895D08E00A1A3E0 /* AppDelegate.swift */; };
 		3F4046492895D08E00A1A3E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046482895D08E00A1A3E0 /* SceneDelegate.swift */; };
 		3F40464B2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40464A2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift */; };
@@ -86,6 +90,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F166E242897699E001BAA81 /* AmazingImageViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageViewInteractor.swift; sourceTree = "<group>"; };
+		3F166E26289769FD001BAA81 /* AmazingImageViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageViewPresenter.swift; sourceTree = "<group>"; };
+		3F166E2828976A5C001BAA81 /* AmazingImageViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageViewModels.swift; sourceTree = "<group>"; };
+		3F166E2A28976E85001BAA81 /* AmazingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageView.swift; sourceTree = "<group>"; };
 		3F4046432895D08E00A1A3E0 /* AmazingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4046462895D08E00A1A3E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F4046482895D08E00A1A3E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +163,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F166E2C2897750F001BAA81 /* AmazingImageView */ = {
+			isa = PBXGroup;
+			children = (
+				3F166E2A28976E85001BAA81 /* AmazingImageView.swift */,
+				3F166E242897699E001BAA81 /* AmazingImageViewInteractor.swift */,
+				3F166E26289769FD001BAA81 /* AmazingImageViewPresenter.swift */,
+				3F166E2828976A5C001BAA81 /* AmazingImageViewModels.swift */,
+			);
+			path = AmazingImageView;
+			sourceTree = "<group>";
+		};
 		3F40463A2895D08E00A1A3E0 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +258,7 @@
 		3F4046AC2896175200A1A3E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F166E2C2897750F001BAA81 /* AmazingImageView */,
 				3F4046AD289617FC00A1A3E0 /* ShowCollectionViewCell.swift */,
 			);
 			path = Views;
@@ -479,7 +499,11 @@
 				3F4046BF28970C6200A1A3E0 /* ShowEndpoint.swift in Sources */,
 				3F4046B52896C42E00A1A3E0 /* UICollectionView+Reuser.swift in Sources */,
 				3F4046C72897147E00A1A3E0 /* ShowListSceneFactory.swift in Sources */,
+				3F166E252897699E001BAA81 /* AmazingImageViewInteractor.swift in Sources */,
+				3F166E2928976A5C001BAA81 /* AmazingImageViewModels.swift in Sources */,
+				3F166E27289769FD001BAA81 /* AmazingImageViewPresenter.swift in Sources */,
 				3F4046B32896C38800A1A3E0 /* Reusable.swift in Sources */,
+				3F166E2B28976E85001BAA81 /* AmazingImageView.swift in Sources */,
 				3F4046CC28972E0600A1A3E0 /* ViewInitializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

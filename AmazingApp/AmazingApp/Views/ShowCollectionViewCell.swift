@@ -17,8 +17,8 @@ protocol ShowCellModel {
 final class ShowCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Components
-    private let posterImageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
+    private let posterImageView: AmazingImageView = {
+        let imageView = AmazingImageViewBuilder.makeView()
         
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -175,6 +175,7 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         nameLabel.text = viewModel.name
         genreLabel.text = viewModel.genresText
         ratingLabel.text = viewModel.ratingText
+        posterImageView.imagePath = viewModel.posterPath
     }
     
     override func prepareForReuse() {
@@ -182,6 +183,7 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         nameLabel.text = String()
         genreLabel.text = String()
         posterImageView.image = UIImage()
+        posterImageView.cancelImageFetch()
         ratingLabel.text = String()
     }
     
