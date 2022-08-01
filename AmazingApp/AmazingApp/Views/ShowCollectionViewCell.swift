@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol ShowCellModel {
+    var name: String { get }
+    var genresText: String { get }
+    var posterPath: String { get }
+    var ratingText: String { get }
+}
+
 final class ShowCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Components
@@ -74,7 +81,6 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         label.backgroundColor = .white
         label.layer.cornerRadius = Metrics.ContentView.cornerRadius
         label.textColor = .black
-        label.text = " ⭑ 4.5 "
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -165,7 +171,7 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         ratingLabel.layer.cornerRadius = Metrics.RatingLabel.cornerRadius
     }
     
-    public func updateData(with viewModel: ShowCellViewModel) {
+    public func updateData(with viewModel: ShowCellModel) {
         nameLabel.text = viewModel.name
         genreLabel.text = viewModel.genresText
         ratingLabel.text = viewModel.ratingText
@@ -177,13 +183,6 @@ final class ShowCollectionViewCell: UICollectionViewCell {
         genreLabel.text = String()
         posterImageView.image = UIImage()
         ratingLabel.text = String()
-    }
-    
-    public struct ShowCellViewModel {
-        let name: String
-        let genresText: String
-        let posterPath: String
-        let ratingText: String
     }
     
 }

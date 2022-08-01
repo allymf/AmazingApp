@@ -36,13 +36,18 @@ final class ShowListPresenter: ShowListPresentationLogic {
     }
     
     
-    private func makeShowCellViewModel(for show: Show) -> ShowCollectionViewCell.ShowCellViewModel {
+    private func makeShowCellViewModel(for show: Show) -> ShowCellModel {
         let genresText = show.genres?.joined(separator: ", ") ?? "Unknown"
+        var rating = "-"
+        if let showRating = show.rating?.average {
+            rating = "\(showRating)"
+        }
         
-        return .init(
+        return ShowList.ShowCellViewModel(
             name: show.name ?? "",
             genresText: genresText,
-            posterPath: show.image?.medium ?? ""
+            posterPath: show.image?.medium ?? "",
+            ratingText: " ⭑ \(rating) "
         )
     }
 

@@ -15,6 +15,7 @@ struct Show: Decodable {
     let schedule: Schedule?
     let summary: String?
     let image: ImagePath?
+    let rating: Rating?
     
     struct Schedule: Decodable {
         let time: String?

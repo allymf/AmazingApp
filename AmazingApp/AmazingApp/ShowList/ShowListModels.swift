@@ -23,7 +23,7 @@ enum ShowList {
         
         enum ViewModel {
             struct Success {
-                let showViewModels: [ShowCollectionViewCell.ShowCellViewModel]
+                let showViewModels: [ShowCellModel]
             }
             struct Failure {
                 let error: NetworkLayerError
@@ -40,6 +40,13 @@ enum ShowList {
     
     public struct Actions: ShowListViewActions {
         let prefetchNextShowsPage: ([IndexPath]) -> Void
+    }
+    
+    public struct ShowCellViewModel: ShowCellModel {
+        let name: String
+        let genresText: String
+        let posterPath: String
+        let ratingText: String
     }
     
 }

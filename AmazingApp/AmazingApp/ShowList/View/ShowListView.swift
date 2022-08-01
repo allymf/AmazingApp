@@ -13,8 +13,8 @@ protocol ShowListViewActions {
 
 protocol ShowListViewProtocol: ViewInitializer {
     var actions: ShowListViewActions? { get set }
-    func updateShowViewModels(_ showViewModels: [ShowCollectionViewCell.ShowCellViewModel])
-    func insertShowViewModels(_ newShowViewModels: [ShowCollectionViewCell.ShowCellViewModel])
+    func updateShowViewModels(_ showViewModels: [ShowCellModel])
+    func insertShowViewModels(_ newShowViewModels: [ShowCellModel])
     func renderLoadingState()
 }
 
@@ -55,7 +55,7 @@ final class ShowListView: UIView, ShowListViewProtocol {
     }()
     
     // MARK: - Properties
-    private var showViewModels = [ShowCollectionViewCell.ShowCellViewModel]()
+    private var showViewModels = [ShowCellModel]()
 
     var actions: ShowListViewActions?
     
@@ -101,7 +101,7 @@ final class ShowListView: UIView, ShowListViewProtocol {
     }
     
     // MARK: - Public API
-    func updateShowViewModels(_ showViewModels: [ShowCollectionViewCell.ShowCellViewModel]) {
+    func updateShowViewModels(_ showViewModels: [ShowCellModel]) {
         self.showViewModels = showViewModels
         collectionView.isHidden = false
         activityIndicator.stopAnimating()
@@ -113,7 +113,7 @@ final class ShowListView: UIView, ShowListViewProtocol {
         activityIndicator.startAnimating()
     }
 
-    func insertShowViewModels(_ newShowViewModels: [ShowCollectionViewCell.ShowCellViewModel]) {
+    func insertShowViewModels(_ newShowViewModels: [ShowCellModel]) {
         self.showViewModels.append(contentsOf: newShowViewModels)
         
         let newIndexPaths = makeInsertionIndexpaths(numberOfItems: showViewModels.count, numberOfNewItems: newShowViewModels.count)
