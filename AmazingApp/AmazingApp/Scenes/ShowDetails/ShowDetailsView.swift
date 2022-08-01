@@ -19,6 +19,7 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         let tableView = UITableView(frame: .zero)
         
         tableView.contentInset = .zero
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         
         tableView.register(EntityTableViewCell.self)
         

@@ -64,17 +64,15 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
     }
     
     private func makeEpisodeViewModel(from episode: Episode) -> ShowDetails.EpisodeViewModel {
-        var numberText = ""
-        if let episodeNumber = episode.number {
-            numberText = "\(episodeNumber)"
+        var rating = "-"
+        if let showRating = episode.rating?.average {
+            rating = "\(showRating)"
         }
-        
         return .init(
             posterPath: episode.image?.medium ?? String(),
             name: episode.name ?? String(),
-            number: numberText,
-            season: episode.season ?? 0,
-            summary: episode.summary ?? String()
+            rating: " ⭑ \(rating) ",
+            season: episode.season ?? 0
         )
     }
     

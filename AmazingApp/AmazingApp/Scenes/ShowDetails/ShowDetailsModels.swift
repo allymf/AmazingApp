@@ -63,14 +63,13 @@ enum ShowDetails {
     struct EpisodeViewModel: EntityCellViewModel {
         let posterPath: String
         let name: String
-        let number: String
+        let rating: String
         let season: Int
-        let summary: String
         
         // MARK: - Entity Interface
         var imagePath: String { posterPath }
         var title: String { name }
-        var description: String { summary }
+        var description: String { rating }
     }
     
 }

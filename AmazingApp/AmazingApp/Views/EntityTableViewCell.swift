@@ -30,6 +30,7 @@ final class EntityTableViewCell: UITableViewCell {
     private let labelsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = Metrics.LabelStackView.verticalMargin
         stackView.distribution = .fillProportionally
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -115,11 +116,11 @@ final class EntityTableViewCell: UITableViewCell {
                     constant: Metrics.IconImageView.horizontalMargin
                 ),
                 iconImageView.bottomAnchor.constraint(
-                    greaterThanOrEqualTo: contentView.bottomAnchor,
+                    equalTo: contentView.bottomAnchor,
                     constant: -Metrics.IconImageView.verticalMargin
                 ),
-                iconImageView.widthAnchor.constraint(equalToConstant: Metrics.IconImageView.edgeSize),
-                iconImageView.heightAnchor.constraint(equalToConstant: Metrics.IconImageView.edgeSize)
+                iconImageView.widthAnchor.constraint(equalToConstant: Metrics.IconImageView.width),
+                iconImageView.heightAnchor.constraint(greaterThanOrEqualToConstant: Metrics.IconImageView.height)
             ]
         )
         
@@ -153,7 +154,8 @@ extension EntityTableViewCell {
     enum Metrics {
         enum IconImageView {
             static let cornerRadius: CGFloat = 10
-            static let edgeSize: CGFloat = 100
+            static let width: CGFloat = 120
+            static let height: CGFloat = 80
             static let verticalMargin: CGFloat = 8
             static let horizontalMargin: CGFloat = 8
         }
@@ -165,15 +167,15 @@ extension EntityTableViewCell {
         
         enum TitleLabel {
             static let font = UIFont.systemFont(
-                ofSize: 17,
+                ofSize: 18,
                 weight: .semibold
             )
-            static let numberOfLines = 1
-        }
+            static let numberOfLines = 2
+    }
         
         enum DescriptionLabel {
             static let font = UIFont.systemFont(
-                ofSize: 12,
+                ofSize: 14,
                 weight: .regular
             )
         }
