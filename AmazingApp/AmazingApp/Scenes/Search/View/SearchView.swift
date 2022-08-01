@@ -1,5 +1,5 @@
 //
-//  ShowListView.swift
+//  SearchView.swift
 //  AmazingApp
 //
 //  Created by Alysson on 31/07/22.
@@ -7,18 +7,12 @@
 
 import UIKit
 
-protocol ShowListViewActions {
-    var prefetchNextShowsPage: ([IndexPath]) -> Void { get }
-}
-
-protocol ShowListViewProtocol: ViewInitializer {
-    var actions: ShowListViewActions? { get set }
+protocol SearchViewProtocol: ViewInitializer {
     func updateShowViewModels(_ showViewModels: [ShowCellModel])
-    func insertShowViewModels(_ newShowViewModels: [ShowCellModel])
     func renderLoadingState()
 }
 
-final class ShowListView: UIView, ShowListViewProtocol {
+final class SearchView: UIView, SearchViewProtocol {
     
     // MARK: - Components
     private let activityIndicator: UIActivityIndicatorView = {
@@ -29,9 +23,7 @@ final class ShowListView: UIView, ShowListViewProtocol {
         
         return activityIndicator
     }()
-    
-    private lazy var refreshControl = UIRefreshControl()
-    
+        
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
     
@@ -44,11 +36,9 @@ final class ShowListView: UIView, ShowListViewProtocol {
         
         collectionView.contentInset = Metrics.CollectionView.contentInset
         
-        collectionView.refreshControl = refreshControl
         collectionView.register(ShowCollectionViewCell.self)
         
         collectionView.dataSource = self
-        collectionView.prefetchDataSource = self
         collectionView.delegate = self
         
         return collectionView
@@ -56,8 +46,6 @@ final class ShowListView: UIView, ShowListViewProtocol {
     
     // MARK: - Properties
     private var showViewModels = [ShowCellModel]()
-
-    var actions: ShowListViewActions?
     
     // MARK: - Initialization
     override init(frame: CGRect = .zero) {
@@ -74,8 +62,8 @@ final class ShowListView: UIView, ShowListViewProtocol {
     
     // MARK: - CodedView methods
     func addSubviews() {
-        addSubview(activityIndicator)
         addSubview(collectionView)
+        addSubview(activityIndicator)
     }
     
     func constrainSubviews() {
@@ -112,29 +100,9 @@ final class ShowListView: UIView, ShowListViewProtocol {
         collectionView.isHidden = true
         activityIndicator.startAnimating()
     }
-
-    func insertShowViewModels(_ newShowViewModels: [ShowCellModel]) {
-        self.showViewModels.append(contentsOf: newShowViewModels)
-        
-        let newIndexPaths = makeInsertionIndexpaths(numberOfItems: showViewModels.count, numberOfNewItems: newShowViewModels.count)
-        collectionView.insertItems(at: newIndexPaths)
-    }
-    
-    private func makeInsertionIndexpaths(numberOfItems: Int, numberOfNewItems: Int) -> [IndexPath] {
-        let startIndex = numberOfItems - numberOfNewItems
-        let endIndex = numberOfItems - 1
-        
-        var newIndexPaths = [IndexPath]()
-        for item in startIndex...endIndex {
-            newIndexPaths.append(IndexPath(item: item, section: 0))
-        }
-        
-        return newIndexPaths
-    }
-
 }
 
-extension ShowListView {
+extension SearchView {
     enum Metrics {
         enum CollectionView {
             static let contentInset = UIEdgeInsets(
@@ -152,12 +120,7 @@ extension ShowListView {
     }
 }
 
-extension ShowListView: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        actions?.prefetchNextShowsPage(indexPaths)
-    }
-    
-    
+extension SearchView: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -184,7 +147,7 @@ extension ShowListView: UICollectionViewDataSource, UICollectionViewDataSourcePr
     
 }
 
-extension ShowListView: UICollectionViewDelegateFlowLayout {
+extension SearchView: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,

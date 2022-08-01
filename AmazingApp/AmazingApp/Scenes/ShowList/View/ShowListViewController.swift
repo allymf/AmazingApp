@@ -8,15 +8,20 @@ import UIKit
 
 final class ShowListViewController: UIViewController {
     
+    // MARK: - Properties
     let viewProtocol: ShowListViewProtocol
     private let interactor: ShowListBusinessLogic
+    private let router: ShowListRoutingLogic
+    private let searchController = UISearchController(searchResultsController: nil)
     
     init(
         viewProtocol: ShowListViewProtocol = ShowListView(),
-        interactor: ShowListBusinessLogic
+        interactor: ShowListBusinessLogic,
+        router: ShowListRoutingLogic
     ) {
         self.viewProtocol = viewProtocol
         self.interactor = interactor
+        self.router = router
         
         super.init(
             nibName: nil,
@@ -36,13 +41,28 @@ final class ShowListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureNavigationBar()
         viewProtocol.renderLoadingState()
         interactor.fetchShows()
+    }
+    
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Shows"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .search,
+            target: self,
+            action: #selector(didTapSearchButton)
+        )
+        navigationController?.extendedLayoutIncludesOpaqueBars = true
     }
     
     private func fetchNextPage(_ indexPaths: [IndexPath]) {
         interactor.fetchNextShowsPage(request: .init(indexPaths: indexPaths))
     }
     
+    @objc func didTapSearchButton() {
+        router.routeToSearch()
+    }
 }
 

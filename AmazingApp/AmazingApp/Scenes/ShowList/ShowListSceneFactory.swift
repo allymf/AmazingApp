@@ -13,9 +13,15 @@ struct ShowListSceneFactory {
         
         let interactor = ShowListInteractor(presenter: presenter)
         
-        let viewController = ShowListViewController(interactor: interactor)
+        let router = ShowListRouter()
+        
+        let viewController = ShowListViewController(
+            interactor: interactor,
+            router: router
+        )
         
         presenter.viewController = viewController
+        router.viewController = viewController
         
         return viewController
     }
