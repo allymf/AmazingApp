@@ -64,6 +64,8 @@
 		3F5A5D6628983E400016D767 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6528983E400016D767 /* Episode.swift */; };
 		3F5A5D6828983F8E0016D767 /* EpisodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6728983F8E0016D767 /* EpisodeRepository.swift */; };
 		3F5A5D6A2898661D0016D767 /* ShowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D692898661D0016D767 /* ShowDetailsView.swift */; };
+		3F5A5D6C289868E60016D767 /* EntityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6B289868E60016D767 /* EntityTableViewCell.swift */; };
+		3F5A5D6E289869170016D767 /* UITableView+Reuser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6D289869170016D767 /* UITableView+Reuser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +173,8 @@
 		3F5A5D6528983E400016D767 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		3F5A5D6728983F8E0016D767 /* EpisodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRepository.swift; sourceTree = "<group>"; };
 		3F5A5D692898661D0016D767 /* ShowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsView.swift; sourceTree = "<group>"; };
+		3F5A5D6B289868E60016D767 /* EntityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTableViewCell.swift; sourceTree = "<group>"; };
+		3F5A5D6D289869170016D767 /* UITableView+Reuser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuser.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +353,7 @@
 			children = (
 				3F166E2C2897750F001BAA81 /* AmazingImageView */,
 				3F4046AD289617FC00A1A3E0 /* ShowCollectionViewCell.swift */,
+				3F5A5D6B289868E60016D767 /* EntityTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 			children = (
 				3F4046B22896C38800A1A3E0 /* Reusable.swift */,
 				3F4046B42896C42E00A1A3E0 /* UICollectionView+Reuser.swift */,
+				3F5A5D6D289869170016D767 /* UITableView+Reuser.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -610,10 +616,12 @@
 				3F4046492895D08E00A1A3E0 /* SceneDelegate.swift in Sources */,
 				3F4046B82896E96800A1A3E0 /* ShowListView.swift in Sources */,
 				3F4046C92897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift in Sources */,
+				3F5A5D6C289868E60016D767 /* EntityTableViewCell.swift in Sources */,
 				3F4046AE289617FC00A1A3E0 /* ShowCollectionViewCell.swift in Sources */,
 				3F4046CE2897306100A1A3E0 /* Array+SafeSubscript.swift in Sources */,
 				3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */,
 				3F5A5D5D289827640016D767 /* ShowDetailsViewController+DisplayLogic.swift in Sources */,
+				3F5A5D6E289869170016D767 /* UITableView+Reuser.swift in Sources */,
 				3F4046C5289712A300A1A3E0 /* ShowListPresenter.swift in Sources */,
 				3F5A5D52289781BE0016D767 /* ShowListRouter.swift in Sources */,
 				3F5A5D61289827FB0016D767 /* ShowDetailsSceneFactory.swift in Sources */,

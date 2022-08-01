@@ -20,6 +20,8 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         
         tableView.contentInset = .zero
         
+        tableView.register(EntityTableViewCell.self)
+        
         tableView.dataSource = self
         
         return tableView
@@ -35,6 +37,10 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         didSet {
             tableView.reloadData()
         }
+    }
+    
+    private func getEpisodeViewModel(for indexPath: IndexPath) -> ShowDetails.EpisodeViewModel? {
+        return seasonViewModels[safeIndex: indexPath.section]?.episodes[safeIndex: indexPath.row]
     }
     
 }
@@ -58,6 +64,15 @@ extension ShowDetailsView: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(
+            EntityTableViewCell.self,
+            for: indexPath
+        )
+        
+        guard let episodeViewModel = getEpisodeViewModel(for: indexPath) else { return cell }
+        
+        cell.viewModel = episodeViewModel
+        
+        return cell
     }
 }
