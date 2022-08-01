@@ -9,9 +9,14 @@ import UIKit
 
 final class ShowDetailsViewController: UIViewController {
     
+    private let viewProtocol: ShowDetailsViewProtocol
     private let interactor: ShowDetailsBusinessLogic
     
-    init(interactor: ShowDetailsBusinessLogic) {
+    init(
+        viewProtocol: ShowDetailsViewProtocol = ShowDetailsView(),
+        interactor: ShowDetailsBusinessLogic
+    ) {
+        self.viewProtocol = viewProtocol
         self.interactor = interactor
         super.init(
             nibName: nil,
@@ -21,6 +26,10 @@ final class ShowDetailsViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        view = viewProtocol.concreteView
     }
     
 }

@@ -41,20 +41,17 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
         viewController?.displayShowSeasonsFailure(viewModel: .init(error: response.error))
     }
     
-    private func makeSeasonsViewModel(with episodes: [Episode]) -> ShowDetails.SeasonViewModel {
+    private func makeSeasonsViewModel(with episodes: [Episode]) -> [ShowDetails.SeasonViewModel] {
         let episodeViewModels = episodes.map { makeEpisodeViewModel(from: $0) }
         
         let seasons: [ShowDetails.SeasonViewModel] = episodeViewModels.reduce([]) { partialResult, episodeViewModel in
-            guard let episodeSeasonNumber = episode.season else { return partialResult }
-            
-            guard let existingSeason = partialResult.first(where: { $0.number == episodeSeasonNumber }) else {
+            guard let existingSeason = partialResult.first(where: { $0.number == episodeViewModel.season }) else {
                 let newSeasonViewModel = ShowDetails.SeasonViewModel(
-                    seasonTitle: "Season \(episodeSeasonNumber)",
-                    number: episodeSeasonNumber,
-                    episodes: [episode]
+                    seasonTitle: "Season \(episodeViewModel.season)",
+                    number: episodeViewModel.season,
+                    episodes: [episodeViewModel]
                 )
-                partialResult.append(newSeasonViewModel)
-                return partialResult
+                return partialResult + [newSeasonViewModel]
             }
             
             existingSeason.episodes.append(episode)
@@ -64,7 +61,7 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
         return seasons
     }
     
-    private makeEpisodeViewModel(from episode: Episode) -> ShowDetails.EpisodeViewModel {
+    private func makeEpisodeViewModel(from episode: Episode) -> ShowDetails.EpisodeViewModel {
         return .init(
             posterPath: episode.image?.medium ?? String(),
             name: episode.name ?? String(),

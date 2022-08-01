@@ -63,6 +63,7 @@
 		3F5A5D6428982AA90016D767 /* EpisodeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6328982AA90016D767 /* EpisodeEndpoint.swift */; };
 		3F5A5D6628983E400016D767 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6528983E400016D767 /* Episode.swift */; };
 		3F5A5D6828983F8E0016D767 /* EpisodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6728983F8E0016D767 /* EpisodeRepository.swift */; };
+		3F5A5D6A2898661D0016D767 /* ShowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D692898661D0016D767 /* ShowDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		3F5A5D6328982AA90016D767 /* EpisodeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeEndpoint.swift; sourceTree = "<group>"; };
 		3F5A5D6528983E400016D767 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		3F5A5D6728983F8E0016D767 /* EpisodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRepository.swift; sourceTree = "<group>"; };
+		3F5A5D692898661D0016D767 /* ShowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +404,7 @@
 			children = (
 				3F5A5D6228982A980016D767 /* Service */,
 				3F5A5D56289825940016D767 /* ShowDetailsViewController.swift */,
+				3F5A5D692898661D0016D767 /* ShowDetailsView.swift */,
 				3F5A5D58289825D10016D767 /* ShowDetailsInteractor.swift */,
 				3F5A5D5A289826E10016D767 /* ShowDetailsPresenter.swift */,
 				3F5A5D5C289827640016D767 /* ShowDetailsViewController+DisplayLogic.swift */,
@@ -596,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F166E4F28977F32001BAA81 /* SearchViewController+DisplayLogic.swift in Sources */,
+				3F5A5D6A2898661D0016D767 /* ShowDetailsView.swift in Sources */,
 				3F5A5D6828983F8E0016D767 /* EpisodeRepository.swift in Sources */,
 				3F166E3B28977EC5001BAA81 /* SearchPresenter.swift in Sources */,
 				3F4046BA2896F41F00A1A3E0 /* ShowRepository.swift in Sources */,
