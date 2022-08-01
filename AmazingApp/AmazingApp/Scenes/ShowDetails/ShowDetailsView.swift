@@ -24,6 +24,8 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         
         tableView.dataSource = self
         
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         return tableView
     }()
     
@@ -39,6 +41,37 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         }
     }
     
+    
+    override init(frame: CGRect = .zero) {
+        super.init(frame: frame)
+        addSubviews()
+        constrainSubviews()
+        additionalConfigurations()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addSubviews() {
+        addSubview(tableView)
+    }
+    
+    func constrainSubviews() {
+        NSLayoutConstraint.activate(
+            [
+                tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+                tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+                tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+                tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            ]
+        )
+    }
+    
+    func additionalConfigurations() {
+        backgroundColor = .white
+    }
+    
     private func getEpisodeViewModel(for indexPath: IndexPath) -> ShowDetails.EpisodeViewModel? {
         return seasonViewModels[safeIndex: indexPath.section]?.episodes[safeIndex: indexPath.row]
     }
@@ -48,6 +81,9 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
 
 extension ShowDetailsView: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return seasonViewModels[safeIndex: section]?.seasonTitle
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         seasonViewModels.count
     }

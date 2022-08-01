@@ -11,7 +11,7 @@ final class ShowListViewController: UIViewController {
     // MARK: - Properties
     let viewProtocol: ShowListViewProtocol
     private let interactor: ShowListBusinessLogic
-    private let router: ShowListRoutingLogic
+    let router: ShowListRoutingLogic
     private let searchController = UISearchController(searchResultsController: nil)
     
     init(
@@ -28,7 +28,10 @@ final class ShowListViewController: UIViewController {
             bundle: nil
         )
         
-        viewProtocol.actions = ShowList.Actions(prefetchNextShowsPage: fetchNextPage)
+        viewProtocol.actions = ShowList.Actions(
+            didSelectItemAt: didSelectItemAt,
+            prefetchNextShowsPage: fetchNextPage
+        )
     }
     
     required init?(coder: NSCoder) {
@@ -59,6 +62,10 @@ final class ShowListViewController: UIViewController {
     
     private func fetchNextPage(_ indexPaths: [IndexPath]) {
         interactor.fetchNextShowsPage(request: .init(indexPaths: indexPaths))
+    }
+    
+    private func didSelectItemAt(_ index: Int) {
+        interactor.selectShow(request: .init(index: index))
     }
     
     @objc func didTapSearchButton() {

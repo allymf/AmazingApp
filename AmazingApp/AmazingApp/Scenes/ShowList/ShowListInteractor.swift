@@ -10,16 +10,23 @@ import Foundation
 protocol ShowListBusinessLogic {
     func fetchShows()
     func fetchNextShowsPage(request: ShowList.FetchNextPage.Request)
+    func selectShow(request: ShowList.SelectShow.Request)
 }
 
-final class ShowListInteractor: ShowListBusinessLogic {
+protocol ShowListDataStore {
+    var selectedShow: Show? { get }
+}
+
+final class ShowListInteractor: ShowListBusinessLogic, ShowListDataStore {
     
     private let presenter: ShowListPresentationLogic
     private let showWorker: ShowRepositoryType
     private var currentShowListPage = 1
-    private var numberOfShows = 0
     private var isFetchingData = false
     private var notOnLastPage = false
+    
+    private var shows: [Show] = []
+    private(set) var selectedShow: Show?
     
     init(
         presenter: ShowListPresentationLogic,
@@ -37,8 +44,8 @@ final class ShowListInteractor: ShowListBusinessLogic {
             self.isFetchingData = false
             switch result {
             case let .success(shows):
+                self.shows.append(contentsOf: shows)
                 self.notOnLastPage = !shows.isEmpty
-                self.numberOfShows += shows.count
                 
                 guard self.currentShowListPage > 1 else {
                     self.successFirstPage(response: .init(shows: shows))
@@ -62,8 +69,13 @@ final class ShowListInteractor: ShowListBusinessLogic {
         fetchShows()
     }
     
+    func selectShow(request: ShowList.SelectShow.Request) {
+        selectedShow = shows[safeIndex: request.index]
+        presenter.presentSelectedShow()
+    }
+    
     private func shouldFetchNextPage(for indexPaths: [IndexPath]) -> Bool {
-        let prefetchThreshold = numberOfShows - 10
+        let prefetchThreshold = shows.count - 10
         
         guard let firstIndex = indexPaths.first?.item,
               firstIndex >= prefetchThreshold else { return false }

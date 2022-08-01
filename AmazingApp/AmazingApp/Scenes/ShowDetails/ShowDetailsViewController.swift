@@ -9,7 +9,7 @@ import UIKit
 
 final class ShowDetailsViewController: UIViewController {
     
-    private let viewProtocol: ShowDetailsViewProtocol
+    let viewProtocol: ShowDetailsViewProtocol
     private let interactor: ShowDetailsBusinessLogic
     
     init(
@@ -30,6 +30,12 @@ final class ShowDetailsViewController: UIViewController {
     
     override func loadView() {
         view = viewProtocol.concreteView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        interactor.fetchShowDetail()
     }
     
 }

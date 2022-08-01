@@ -45,7 +45,7 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
         let episodeViewModels = episodes.map { makeEpisodeViewModel(from: $0) }
         
         let seasons: [ShowDetails.SeasonViewModel] = episodeViewModels.reduce([]) { partialResult, episodeViewModel in
-            guard let existingSeason = partialResult.first(where: { $0.number == episodeViewModel.season }) else {
+            guard let existingSeasonIndex = partialResult.firstIndex(where: { $0.number == episodeViewModel.season }) else {
                 let newSeasonViewModel = ShowDetails.SeasonViewModel(
                     seasonTitle: "Season \(episodeViewModel.season)",
                     number: episodeViewModel.season,
@@ -54,18 +54,25 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
                 return partialResult + [newSeasonViewModel]
             }
             
-            existingSeason.episodes.append(episode)
-            return partialResult
+            var newResult = partialResult
+            
+            newResult[existingSeasonIndex].episodes.append(episodeViewModel)
+            return newResult
         }
         
         return seasons
     }
     
     private func makeEpisodeViewModel(from episode: Episode) -> ShowDetails.EpisodeViewModel {
+        var numberText = ""
+        if let episodeNumber = episode.number {
+            numberText = "\(episodeNumber)"
+        }
+        
         return .init(
             posterPath: episode.image?.medium ?? String(),
             name: episode.name ?? String(),
-            number: episode.number ?? String(),
+            number: numberText,
             season: episode.season ?? 0,
             summary: episode.summary ?? String()
         )

@@ -38,7 +38,14 @@ enum ShowList {
         }
     }
     
+    enum SelectShow {
+        struct Request {
+            let index: Int
+        }
+    }
+    
     public struct Actions: ShowListViewActions {
+        let didSelectItemAt: (Int) -> Void
         let prefetchNextShowsPage: ([IndexPath]) -> Void
     }
     

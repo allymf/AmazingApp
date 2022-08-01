@@ -15,10 +15,14 @@ protocol ShowDetailsDisplayLogic: AnyObject {
 
 extension ShowDetailsViewController: ShowDetailsDisplayLogic {
     func displayShowDetails(viewModel: ShowDetails.FetchShowDetail.ViewModel.Success) {
-        
+        title = viewModel.headerViewModel.name
     }
     
-    func displayShowSeasons(viewModel: ShowDetails.FetchShowSeasons.ViewModel.Success) {}
+    func displayShowSeasons(viewModel: ShowDetails.FetchShowSeasons.ViewModel.Success) {
+        DispatchQueue.main.async {
+            self.viewProtocol.seasonViewModels = viewModel.seasonViewModels
+        }
+    }
     
     func displayShowSeasonsFailure(viewModel: ShowDetails.FetchShowSeasons.ViewModel.Failure) {}
     

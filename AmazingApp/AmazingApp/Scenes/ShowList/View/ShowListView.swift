@@ -9,6 +9,7 @@ import UIKit
 
 protocol ShowListViewActions {
     var prefetchNextShowsPage: ([IndexPath]) -> Void { get }
+    var didSelectItemAt: (Int) -> Void { get }
 }
 
 protocol ShowListViewProtocol: ViewInitializer {
@@ -185,6 +186,14 @@ extension ShowListView: UICollectionViewDataSource, UICollectionViewDataSourcePr
 }
 
 extension ShowListView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        actions?.didSelectItemAt(indexPath.item)
+    }
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
