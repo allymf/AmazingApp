@@ -53,7 +53,7 @@
 		3F4046CC28972E0600A1A3E0 /* ViewInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046CB28972E0600A1A3E0 /* ViewInitializer.swift */; };
 		3F4046CE2897306100A1A3E0 /* Array+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046CD2897306100A1A3E0 /* Array+SafeSubscript.swift */; };
 		3F5A5D52289781BE0016D767 /* ShowListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D51289781BE0016D767 /* ShowListRouter.swift */; };
-		3F5A5D54289782F50016D767 /* AmazingImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D53289782F50016D767 /* AmazingImageViewBuilder.swift */; };
+		3F5A5D54289782F50016D767 /* AmazingImageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D53289782F50016D767 /* AmazingImageViewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,7 +150,7 @@
 		3F4046CB28972E0600A1A3E0 /* ViewInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInitializer.swift; sourceTree = "<group>"; };
 		3F4046CD2897306100A1A3E0 /* Array+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SafeSubscript.swift"; sourceTree = "<group>"; };
 		3F5A5D51289781BE0016D767 /* ShowListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListRouter.swift; sourceTree = "<group>"; };
-		3F5A5D53289782F50016D767 /* AmazingImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageViewBuilder.swift; sourceTree = "<group>"; };
+		3F5A5D53289782F50016D767 /* AmazingImageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageViewFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +194,7 @@
 				3F166E242897699E001BAA81 /* AmazingImageViewInteractor.swift */,
 				3F166E26289769FD001BAA81 /* AmazingImageViewPresenter.swift */,
 				3F166E2828976A5C001BAA81 /* AmazingImageViewModels.swift */,
-				3F5A5D53289782F50016D767 /* AmazingImageViewBuilder.swift */,
+				3F5A5D53289782F50016D767 /* AmazingImageViewFactory.swift */,
 			);
 			path = AmazingImageView;
 			sourceTree = "<group>";
@@ -571,7 +571,7 @@
 				3F4046BF28970C6200A1A3E0 /* ShowEndpoint.swift in Sources */,
 				3F4046B52896C42E00A1A3E0 /* UICollectionView+Reuser.swift in Sources */,
 				3F166E3D28977EC5001BAA81 /* SearchSceneFactory.swift in Sources */,
-				3F5A5D54289782F50016D767 /* AmazingImageViewBuilder.swift in Sources */,
+				3F5A5D54289782F50016D767 /* AmazingImageViewFactory.swift in Sources */,
 				3F166E4B28977F32001BAA81 /* SearchEndpoint.swift in Sources */,
 				3F4046C72897147E00A1A3E0 /* ShowListSceneFactory.swift in Sources */,
 				3F166E252897699E001BAA81 /* AmazingImageViewInteractor.swift in Sources */,

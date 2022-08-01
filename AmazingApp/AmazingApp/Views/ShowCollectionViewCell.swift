@@ -18,7 +18,7 @@ final class ShowCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Components
     private let posterImageView: AmazingImageView = {
-        let imageView = AmazingImageViewBuilder.makeView()
+        let imageView = AmazingImageViewFactory.makeView()
         
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
