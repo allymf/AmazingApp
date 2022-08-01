@@ -11,9 +11,19 @@
 		3F166E27289769FD001BAA81 /* AmazingImageViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E26289769FD001BAA81 /* AmazingImageViewPresenter.swift */; };
 		3F166E2928976A5C001BAA81 /* AmazingImageViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E2828976A5C001BAA81 /* AmazingImageViewModels.swift */; };
 		3F166E2B28976E85001BAA81 /* AmazingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E2A28976E85001BAA81 /* AmazingImageView.swift */; };
+		3F166E3B28977EC5001BAA81 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E3528977EC5001BAA81 /* SearchPresenter.swift */; };
+		3F166E3C28977EC5001BAA81 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E3628977EC5001BAA81 /* SearchInteractor.swift */; };
+		3F166E3D28977EC5001BAA81 /* SearchSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E3728977EC5001BAA81 /* SearchSceneFactory.swift */; };
+		3F166E3E28977EC5001BAA81 /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E3828977EC5001BAA81 /* SearchModels.swift */; };
+		3F166E4A28977F32001BAA81 /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E4328977F32001BAA81 /* SearchRepository.swift */; };
+		3F166E4B28977F32001BAA81 /* SearchEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E4428977F32001BAA81 /* SearchEndpoint.swift */; };
+		3F166E4C28977F32001BAA81 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E4528977F32001BAA81 /* Search.swift */; };
+		3F166E4D28977F32001BAA81 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E4728977F32001BAA81 /* SearchViewController.swift */; };
+		3F166E4E28977F32001BAA81 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E4828977F32001BAA81 /* SearchView.swift */; };
+		3F166E4F28977F32001BAA81 /* SearchViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E4928977F32001BAA81 /* SearchViewController+DisplayLogic.swift */; };
+		3F166E51289780ED001BAA81 /* ShowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F166E50289780ED001BAA81 /* ShowListViewController.swift */; };
 		3F4046472895D08E00A1A3E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046462895D08E00A1A3E0 /* AppDelegate.swift */; };
 		3F4046492895D08E00A1A3E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046482895D08E00A1A3E0 /* SceneDelegate.swift */; };
-		3F40464B2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40464A2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift */; };
 		3F4046502895D09000A1A3E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F40464F2895D09000A1A3E0 /* Assets.xcassets */; };
 		3F4046532895D09000A1A3E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4046512895D09000A1A3E0 /* LaunchScreen.storyboard */; };
 		3F4046832895D69C00A1A3E0 /* AmazingNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F40467B2895D69C00A1A3E0 /* AmazingNetwork.framework */; };
@@ -42,6 +52,8 @@
 		3F4046C92897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046C82897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift */; };
 		3F4046CC28972E0600A1A3E0 /* ViewInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046CB28972E0600A1A3E0 /* ViewInitializer.swift */; };
 		3F4046CE2897306100A1A3E0 /* Array+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4046CD2897306100A1A3E0 /* Array+SafeSubscript.swift */; };
+		3F5A5D52289781BE0016D767 /* ShowListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D51289781BE0016D767 /* ShowListRouter.swift */; };
+		3F5A5D54289782F50016D767 /* AmazingImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D53289782F50016D767 /* AmazingImageViewBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,10 +106,20 @@
 		3F166E26289769FD001BAA81 /* AmazingImageViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageViewPresenter.swift; sourceTree = "<group>"; };
 		3F166E2828976A5C001BAA81 /* AmazingImageViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageViewModels.swift; sourceTree = "<group>"; };
 		3F166E2A28976E85001BAA81 /* AmazingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageView.swift; sourceTree = "<group>"; };
+		3F166E3528977EC5001BAA81 /* SearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		3F166E3628977EC5001BAA81 /* SearchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		3F166E3728977EC5001BAA81 /* SearchSceneFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSceneFactory.swift; sourceTree = "<group>"; };
+		3F166E3828977EC5001BAA81 /* SearchModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		3F166E4328977F32001BAA81 /* SearchRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
+		3F166E4428977F32001BAA81 /* SearchEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEndpoint.swift; sourceTree = "<group>"; };
+		3F166E4528977F32001BAA81 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		3F166E4728977F32001BAA81 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3F166E4828977F32001BAA81 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3F166E4928977F32001BAA81 /* SearchViewController+DisplayLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
+		3F166E50289780ED001BAA81 /* ShowListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowListViewController.swift; sourceTree = "<group>"; };
 		3F4046432895D08E00A1A3E0 /* AmazingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4046462895D08E00A1A3E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F4046482895D08E00A1A3E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3F40464A2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListViewControllerViewController.swift; sourceTree = "<group>"; };
 		3F40464F2895D09000A1A3E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F4046522895D09000A1A3E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F4046542895D09000A1A3E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,6 +149,8 @@
 		3F4046C82897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowListViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
 		3F4046CB28972E0600A1A3E0 /* ViewInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInitializer.swift; sourceTree = "<group>"; };
 		3F4046CD2897306100A1A3E0 /* Array+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SafeSubscript.swift"; sourceTree = "<group>"; };
+		3F5A5D51289781BE0016D767 /* ShowListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListRouter.swift; sourceTree = "<group>"; };
+		3F5A5D53289782F50016D767 /* AmazingImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingImageViewBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +194,51 @@
 				3F166E242897699E001BAA81 /* AmazingImageViewInteractor.swift */,
 				3F166E26289769FD001BAA81 /* AmazingImageViewPresenter.swift */,
 				3F166E2828976A5C001BAA81 /* AmazingImageViewModels.swift */,
+				3F5A5D53289782F50016D767 /* AmazingImageViewBuilder.swift */,
 			);
 			path = AmazingImageView;
+			sourceTree = "<group>";
+		};
+		3F166E2D28977CD9001BAA81 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3F166E2E28977D22001BAA81 /* Search */,
+				3F4046AB28960AA600A1A3E0 /* ShowList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		3F166E2E28977D22001BAA81 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3F166E4228977F32001BAA81 /* Service */,
+				3F166E4628977F32001BAA81 /* View */,
+				3F166E3628977EC5001BAA81 /* SearchInteractor.swift */,
+				3F166E3828977EC5001BAA81 /* SearchModels.swift */,
+				3F166E3528977EC5001BAA81 /* SearchPresenter.swift */,
+				3F166E3728977EC5001BAA81 /* SearchSceneFactory.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3F166E4228977F32001BAA81 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3F166E4328977F32001BAA81 /* SearchRepository.swift */,
+				3F166E4428977F32001BAA81 /* SearchEndpoint.swift */,
+				3F166E4528977F32001BAA81 /* Search.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3F166E4628977F32001BAA81 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F166E4728977F32001BAA81 /* SearchViewController.swift */,
+				3F166E4828977F32001BAA81 /* SearchView.swift */,
+				3F166E4928977F32001BAA81 /* SearchViewController+DisplayLogic.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3F40463A2895D08E00A1A3E0 = {
@@ -199,10 +266,10 @@
 		3F4046452895D08E00A1A3E0 /* AmazingApp */ = {
 			isa = PBXGroup;
 			children = (
+				3F166E2D28977CD9001BAA81 /* Scenes */,
 				3F4046CA28972DF900A1A3E0 /* Commom */,
 				3F4046B02896C2CE00A1A3E0 /* Extensions */,
 				3F4046AC2896175200A1A3E0 /* Views */,
-				3F4046AB28960AA600A1A3E0 /* ShowList */,
 				3F4046462895D08E00A1A3E0 /* AppDelegate.swift */,
 				3F4046482895D08E00A1A3E0 /* SceneDelegate.swift */,
 				3F40464F2895D09000A1A3E0 /* Assets.xcassets */,
@@ -251,6 +318,7 @@
 				3F4046C4289712A300A1A3E0 /* ShowListPresenter.swift */,
 				3F4046C2289711FB00A1A3E0 /* ShowListModels.swift */,
 				3F4046C62897147E00A1A3E0 /* ShowListSceneFactory.swift */,
+				3F5A5D51289781BE0016D767 /* ShowListRouter.swift */,
 			);
 			path = ShowList;
 			sourceTree = "<group>";
@@ -285,8 +353,8 @@
 		3F4046B62896E8E900A1A3E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F166E50289780ED001BAA81 /* ShowListViewController.swift */,
 				3F4046B72896E96800A1A3E0 /* ShowListView.swift */,
-				3F40464A2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift */,
 				3F4046C82897276200A1A3E0 /* ShowListViewController+DisplayLogic.swift */,
 			);
 			path = View;
@@ -484,9 +552,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F166E4F28977F32001BAA81 /* SearchViewController+DisplayLogic.swift in Sources */,
+				3F166E3B28977EC5001BAA81 /* SearchPresenter.swift in Sources */,
 				3F4046BA2896F41F00A1A3E0 /* ShowRepository.swift in Sources */,
-				3F40464B2895D08E00A1A3E0 /* ShowListViewControllerViewController.swift in Sources */,
 				3F4046C128970DCF00A1A3E0 /* ShowListInteractor.swift in Sources */,
+				3F166E3E28977EC5001BAA81 /* SearchModels.swift in Sources */,
 				3F4046472895D08E00A1A3E0 /* AppDelegate.swift in Sources */,
 				3F4046492895D08E00A1A3E0 /* SceneDelegate.swift in Sources */,
 				3F4046B82896E96800A1A3E0 /* ShowListView.swift in Sources */,
@@ -495,16 +565,26 @@
 				3F4046CE2897306100A1A3E0 /* Array+SafeSubscript.swift in Sources */,
 				3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */,
 				3F4046C5289712A300A1A3E0 /* ShowListPresenter.swift in Sources */,
+				3F5A5D52289781BE0016D767 /* ShowListRouter.swift in Sources */,
+				3F166E4C28977F32001BAA81 /* Search.swift in Sources */,
 				3F4046C3289711FB00A1A3E0 /* ShowListModels.swift in Sources */,
 				3F4046BF28970C6200A1A3E0 /* ShowEndpoint.swift in Sources */,
 				3F4046B52896C42E00A1A3E0 /* UICollectionView+Reuser.swift in Sources */,
+				3F166E3D28977EC5001BAA81 /* SearchSceneFactory.swift in Sources */,
+				3F5A5D54289782F50016D767 /* AmazingImageViewBuilder.swift in Sources */,
+				3F166E4B28977F32001BAA81 /* SearchEndpoint.swift in Sources */,
 				3F4046C72897147E00A1A3E0 /* ShowListSceneFactory.swift in Sources */,
 				3F166E252897699E001BAA81 /* AmazingImageViewInteractor.swift in Sources */,
+				3F166E4A28977F32001BAA81 /* SearchRepository.swift in Sources */,
 				3F166E2928976A5C001BAA81 /* AmazingImageViewModels.swift in Sources */,
 				3F166E27289769FD001BAA81 /* AmazingImageViewPresenter.swift in Sources */,
+				3F166E4E28977F32001BAA81 /* SearchView.swift in Sources */,
 				3F4046B32896C38800A1A3E0 /* Reusable.swift in Sources */,
 				3F166E2B28976E85001BAA81 /* AmazingImageView.swift in Sources */,
+				3F166E51289780ED001BAA81 /* ShowListViewController.swift in Sources */,
 				3F4046CC28972E0600A1A3E0 /* ViewInitializer.swift in Sources */,
+				3F166E4D28977F32001BAA81 /* SearchViewController.swift in Sources */,
+				3F166E3C28977EC5001BAA81 /* SearchInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

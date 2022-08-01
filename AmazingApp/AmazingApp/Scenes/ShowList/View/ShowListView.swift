@@ -74,8 +74,8 @@ final class ShowListView: UIView, ShowListViewProtocol {
     
     // MARK: - CodedView methods
     func addSubviews() {
-        addSubview(activityIndicator)
         addSubview(collectionView)
+        addSubview(activityIndicator)
     }
     
     func constrainSubviews() {
