@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol ShowListViewActions {
+    var prefetchNextShowsPage: ([IndexPath]) -> Void { get }
+}
 
 protocol ShowListViewProtocol: ViewInitializer {
+    var actions: ShowListViewActions? { get set }
     func updateShowViewModels(_ showViewModels: [ShowCollectionViewCell.ShowCellViewModel])
+    func insertShowViewModels(_ newShowViewModels: [ShowCollectionViewCell.ShowCellViewModel])
     func renderLoadingState()
 }
 
@@ -43,6 +48,7 @@ final class ShowListView: UIView, ShowListViewProtocol {
         collectionView.register(ShowCollectionViewCell.self)
         
         collectionView.dataSource = self
+        collectionView.prefetchDataSource = self
         collectionView.delegate = self
         
         return collectionView
@@ -50,6 +56,8 @@ final class ShowListView: UIView, ShowListViewProtocol {
     
     // MARK: - Properties
     private var showViewModels = [ShowCollectionViewCell.ShowCellViewModel]()
+
+    var actions: ShowListViewActions?
     
     // MARK: - Initialization
     override init(frame: CGRect = .zero) {
@@ -89,7 +97,7 @@ final class ShowListView: UIView, ShowListViewProtocol {
     }
     
     func additionalConfigurations() {
-        backgroundColor = .systemGray4
+        backgroundColor = .systemGray6
     }
     
     // MARK: - Public API
@@ -105,6 +113,24 @@ final class ShowListView: UIView, ShowListViewProtocol {
         activityIndicator.startAnimating()
     }
 
+    func insertShowViewModels(_ newShowViewModels: [ShowCollectionViewCell.ShowCellViewModel]) {
+        self.showViewModels.append(contentsOf: newShowViewModels)
+        
+        let newIndexPaths = makeInsertionIndexpaths(numberOfItems: showViewModels.count, numberOfNewItems: newShowViewModels.count)
+        collectionView.insertItems(at: newIndexPaths)
+    }
+    
+    private func makeInsertionIndexpaths(numberOfItems: Int, numberOfNewItems: Int) -> [IndexPath] {
+        let startIndex = numberOfItems - numberOfNewItems
+        let endIndex = numberOfItems - 1
+        
+        var newIndexPaths = [IndexPath]()
+        for item in startIndex...endIndex {
+            newIndexPaths.append(IndexPath(item: item, section: 0))
+        }
+        
+        return newIndexPaths
+    }
 
 }
 
@@ -121,12 +147,16 @@ extension ShowListView {
             static let interItemSpacing: CGFloat = 16
             static let totalHorizontalMargin: CGFloat = 24
             static let numberOfItemsPerRow: CGFloat = 2
-            static let itemHeight: CGFloat = 200
+            static let itemHeight: CGFloat = 280
         }
     }
 }
 
-extension ShowListView: UICollectionViewDataSource {
+extension ShowListView: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        actions?.prefetchNextShowsPage(indexPaths)
+    }
+    
     
     func collectionView(
         _ collectionView: UICollectionView,

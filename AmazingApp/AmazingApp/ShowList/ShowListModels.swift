@@ -32,4 +32,14 @@ enum ShowList {
         
     }
     
+    enum FetchNextPage {
+        struct Request {
+            let indexPaths: [IndexPath]
+        }
+    }
+    
+    public struct Actions: ShowListViewActions {
+        let prefetchNextShowsPage: ([IndexPath]) -> Void
+    }
+    
 }

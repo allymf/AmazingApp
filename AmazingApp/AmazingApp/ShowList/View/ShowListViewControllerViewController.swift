@@ -17,10 +17,13 @@ final class ShowListViewController: UIViewController {
     ) {
         self.viewProtocol = viewProtocol
         self.interactor = interactor
+        
         super.init(
             nibName: nil,
             bundle: nil
         )
+        
+        viewProtocol.actions = ShowList.Actions(prefetchNextShowsPage: fetchNextPage)
     }
     
     required init?(coder: NSCoder) {
@@ -35,6 +38,10 @@ final class ShowListViewController: UIViewController {
         super.viewWillAppear(animated)
         viewProtocol.renderLoadingState()
         interactor.fetchShows()
+    }
+    
+    private func fetchNextPage(_ indexPaths: [IndexPath]) {
+        interactor.fetchNextShowsPage(request: .init(indexPaths: indexPaths))
     }
     
 }
