@@ -17,7 +17,7 @@ final class EntityTableViewCell: UITableViewCell {
     
     // MARK: - Components
     private let iconImageView: AmazingImageView = {
-        let iconImageView = AmazingImageView()
+        let iconImageView = AmazingImageViewFactory.makeView()
         
         iconImageView.contentMode = .scaleAspectFill
         iconImageView.clipsToBounds = true
