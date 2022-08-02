@@ -31,8 +31,6 @@ final class ShowListView: UIView, ShowListViewProtocol {
         return activityIndicator
     }()
     
-    private lazy var refreshControl = UIRefreshControl()
-    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
     
@@ -45,7 +43,6 @@ final class ShowListView: UIView, ShowListViewProtocol {
         
         collectionView.contentInset = Metrics.CollectionView.contentInset
         
-        collectionView.refreshControl = refreshControl
         collectionView.register(ShowCollectionViewCell.self)
         
         collectionView.dataSource = self
