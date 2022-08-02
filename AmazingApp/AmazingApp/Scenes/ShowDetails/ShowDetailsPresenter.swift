@@ -24,9 +24,9 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
             iconPath: response.show.image?.medium ?? String(),
             bannerPath: response.show.image?.original ?? String(),
             name: response.show.name ?? "-",
-            scheduleText: makeScheduleText(for: response.show.schedule),
+            timeText: makeScheduleText(for: response.show.schedule),
             genresText: genresText,
-            summary: response.show.summary ?? String()
+            summary: response.show.summary?.removeHTMLMarks() ?? String()
         )
         
         viewController?.displayShowDetails(viewModel: .init(headerViewModel: headerViewModel))

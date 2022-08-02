@@ -15,6 +15,11 @@ protocol ShowDetailsViewProtocol: ViewInitializer {
 final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
     
     // MARK: - Components
+    private lazy var tableHeaderView: EntityDetailsView = {
+        let view = EntityDetailsView()
+        return view
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         
@@ -25,6 +30,8 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         
         tableView.dataSource = self
         
+        tableView.tableHeaderView = tableHeaderView
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         return tableView
@@ -32,7 +39,7 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
     
     var showDetailsHeaderViewModel: ShowDetails.ShowDetailHeaderViewModel? {
         didSet {
-            tableView.reloadData()
+            tableHeaderView.viewModel = showDetailsHeaderViewModel
         }
     }
     
@@ -54,9 +61,23 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let size = tableHeaderView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        if tableHeaderView.frame.size.height != size.height {
+            tableHeaderView.frame.size.height = size.height
+            tableHeaderView.setNeedsLayout()
+            tableHeaderView.layoutIfNeeded()
+            tableView.tableHeaderView = tableHeaderView
+            tableView.layoutIfNeeded()
+        }
+    }
+    
     func addSubviews() {
         addSubview(tableView)
     }
+    
+    
     
     func constrainSubviews() {
         NSLayoutConstraint.activate(
@@ -71,6 +92,14 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
     
     func additionalConfigurations() {
         backgroundColor = .white
+        
+//        let size = tableHeaderView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+//        if tableHeaderView.frame.size.height != size.height {
+//            tableHeaderView.frame.size.width = tableView.bounds.size.width
+//            tableHeaderView.frame.size.height = size.height
+//            tableView.tableHeaderView = tableHeaderView
+//            tableView.layoutIfNeeded()
+//        }
     }
     
     private func getEpisodeViewModel(for indexPath: IndexPath) -> ShowDetails.EpisodeViewModel? {

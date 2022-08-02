@@ -15,7 +15,7 @@ protocol ShowDetailsDisplayLogic: AnyObject {
 
 extension ShowDetailsViewController: ShowDetailsDisplayLogic {
     func displayShowDetails(viewModel: ShowDetails.FetchShowDetail.ViewModel.Success) {
-        title = viewModel.headerViewModel.name
+        viewProtocol.showDetailsHeaderViewModel = viewModel.headerViewModel
     }
     
     func displayShowSeasons(viewModel: ShowDetails.FetchShowSeasons.ViewModel.Success) {

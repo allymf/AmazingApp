@@ -34,7 +34,8 @@ final class ShowDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        title = nil
+        navigationController?.navigationBar.prefersLargeTitles = false
         interactor.fetchShowDetail()
     }
     

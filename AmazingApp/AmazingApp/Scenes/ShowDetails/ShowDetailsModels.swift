@@ -45,11 +45,11 @@ enum ShowDetails {
         }
     }
     
-    struct ShowDetailHeaderViewModel {
+    struct ShowDetailHeaderViewModel: EntityDetailsViewModel {
         let iconPath: String
         let bannerPath: String
         let name: String
-        let scheduleText: String
+        let timeText: String
         let genresText: String
         let summary: String
     }

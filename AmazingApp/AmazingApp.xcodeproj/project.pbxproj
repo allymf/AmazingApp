@@ -66,6 +66,8 @@
 		3F5A5D6A2898661D0016D767 /* ShowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D692898661D0016D767 /* ShowDetailsView.swift */; };
 		3F5A5D6C289868E60016D767 /* EntityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6B289868E60016D767 /* EntityTableViewCell.swift */; };
 		3F5A5D6E289869170016D767 /* UITableView+Reuser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D6D289869170016D767 /* UITableView+Reuser.swift */; };
+		3F5A5D8528989C110016D767 /* EntityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D8428989C110016D767 /* EntityDetailsView.swift */; };
+		3F5A5D872898A3F70016D767 /* String+RemoveHTMLMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D862898A3F70016D767 /* String+RemoveHTMLMarks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +177,8 @@
 		3F5A5D692898661D0016D767 /* ShowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsView.swift; sourceTree = "<group>"; };
 		3F5A5D6B289868E60016D767 /* EntityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTableViewCell.swift; sourceTree = "<group>"; };
 		3F5A5D6D289869170016D767 /* UITableView+Reuser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuser.swift"; sourceTree = "<group>"; };
+		3F5A5D8428989C110016D767 /* EntityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDetailsView.swift; sourceTree = "<group>"; };
+		3F5A5D862898A3F70016D767 /* String+RemoveHTMLMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveHTMLMarks.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +358,7 @@
 				3F166E2C2897750F001BAA81 /* AmazingImageView */,
 				3F4046AD289617FC00A1A3E0 /* ShowCollectionViewCell.swift */,
 				3F5A5D6B289868E60016D767 /* EntityTableViewCell.swift */,
+				3F5A5D8428989C110016D767 /* EntityDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			children = (
 				3F4046B12896C2F500A1A3E0 /* Reusable */,
 				3F4046CD2897306100A1A3E0 /* Array+SafeSubscript.swift */,
+				3F5A5D862898A3F70016D767 /* String+RemoveHTMLMarks.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -629,6 +635,7 @@
 				3F4046CE2897306100A1A3E0 /* Array+SafeSubscript.swift in Sources */,
 				3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */,
 				3F5A5D5D289827640016D767 /* ShowDetailsViewController+DisplayLogic.swift in Sources */,
+				3F5A5D872898A3F70016D767 /* String+RemoveHTMLMarks.swift in Sources */,
 				3F5A5D6E289869170016D767 /* UITableView+Reuser.swift in Sources */,
 				3F4046C5289712A300A1A3E0 /* ShowListPresenter.swift in Sources */,
 				3F5A5D52289781BE0016D767 /* ShowListRouter.swift in Sources */,
@@ -654,6 +661,7 @@
 				3F5A5D6428982AA90016D767 /* EpisodeEndpoint.swift in Sources */,
 				3F166E2B28976E85001BAA81 /* AmazingImageView.swift in Sources */,
 				3F166E51289780ED001BAA81 /* ShowListViewController.swift in Sources */,
+				3F5A5D8528989C110016D767 /* EntityDetailsView.swift in Sources */,
 				3F4046CC28972E0600A1A3E0 /* ViewInitializer.swift in Sources */,
 				3F166E4D28977F32001BAA81 /* SearchViewController.swift in Sources */,
 				3F166E3C28977EC5001BAA81 /* SearchInteractor.swift in Sources */,
