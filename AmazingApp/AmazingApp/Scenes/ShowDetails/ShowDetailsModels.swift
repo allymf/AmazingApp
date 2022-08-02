@@ -55,12 +55,12 @@ enum ShowDetails {
         let didSelectRowAt: (IndexPath) -> Void
     }
     
-    struct ShowDetailHeaderViewModel {
+    struct ShowDetailHeaderViewModel: EntityDetailsViewModel {
         let iconPath: String
         let bannerPath: String
         let name: String
-        let timeText: String
-        let genresText: String
+        let subtitle: String
+        let headline: String
         let summary: String
     }
     

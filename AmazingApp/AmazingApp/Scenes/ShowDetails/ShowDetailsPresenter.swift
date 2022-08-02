@@ -25,8 +25,8 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
             iconPath: response.show.image?.medium ?? String(),
             bannerPath: response.show.image?.original ?? String(),
             name: response.show.name ?? "-",
-            timeText: makeScheduleText(for: response.show.schedule),
-            genresText: genresText,
+            subtitle: makeScheduleText(for: response.show.schedule),
+            headline: genresText,
             summary: response.show.summary?.removeHTMLMarks() ?? String()
         )
         

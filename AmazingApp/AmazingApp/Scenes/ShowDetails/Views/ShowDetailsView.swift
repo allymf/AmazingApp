@@ -74,7 +74,7 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         super.layoutSubviews()
         let size = tableHeaderView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         if tableHeaderView.frame.size.height != size.height {
-            tableHeaderView.frame.size.height = size.height
+            tableHeaderView.frame.size.height = size.height + 200
             tableHeaderView.setNeedsLayout()
             tableHeaderView.layoutIfNeeded()
             tableView.tableHeaderView = tableHeaderView
@@ -85,8 +85,6 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
     func addSubviews() {
         addSubview(tableView)
     }
-    
-    
     
     func constrainSubviews() {
         NSLayoutConstraint.activate(
@@ -101,14 +99,6 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
     
     func additionalConfigurations() {
         backgroundColor = .white
-        
-//        let size = tableHeaderView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-//        if tableHeaderView.frame.size.height != size.height {
-//            tableHeaderView.frame.size.width = tableView.bounds.size.width
-//            tableHeaderView.frame.size.height = size.height
-//            tableView.tableHeaderView = tableHeaderView
-//            tableView.layoutIfNeeded()
-//        }
     }
     
     private func getEpisodeViewModel(for indexPath: IndexPath) -> ShowDetails.EpisodeViewModel? {

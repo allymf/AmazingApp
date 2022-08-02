@@ -22,10 +22,16 @@ enum EpisodeDetails {
         }
     }
     
-    struct EpisodeViewModel: EpisodeDetailsViewModel {
-        let posterPath: String
+    struct EpisodeViewModel: EntityDetailsViewModel {
+        
+        var iconPath: String { "" }
+        var subtitle: String { seasonNumberText }
+        var headline: String { episodeNumberText }
+        
+        let bannerPath: String
         let name: String
-        let seasonAndEpisodeNumberText: String
+        let seasonNumberText: String
+        let episodeNumberText: String
         let summary: String
     }
     

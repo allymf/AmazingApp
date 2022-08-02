@@ -8,15 +8,8 @@
 import Foundation
 import UIKit
 
-protocol EpisodeDetailsViewModel {
-    var posterPath: String { get }
-    var name: String { get }
-    var seasonAndEpisodeNumberText: String { get }
-    var summary: String { get }
-}
-
 protocol EpisodeDetailsViewProtocol: ViewInitializer {
-    var viewModel: EpisodeDetailsViewModel? { get set }
+    var viewModel: EntityDetailsViewModel? { get set }
 }
 
 final class EpisodeDetailsView: UIView, EpisodeDetailsViewProtocol {
@@ -38,20 +31,25 @@ final class EpisodeDetailsView: UIView, EpisodeDetailsViewProtocol {
         return view
     }()
     
-    private let sampleView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    private let detailsView: EntityDetailsView = {
+        let view = EntityDetailsView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.hideImage()
         return view
     }()
     
-    var viewModel: EpisodeDetailsViewModel?
+    var viewModel: EntityDetailsViewModel? {
+        didSet {
+            detailsView.viewModel = viewModel
+        }
+    }
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
         addSubviews()
         constrainSubviews()
+        additionalConfigurations()
     }
     
     required init?(coder: NSCoder) {
@@ -61,7 +59,7 @@ final class EpisodeDetailsView: UIView, EpisodeDetailsViewProtocol {
     func addSubviews() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(sampleView)
+        contentView.addSubview(detailsView)
     }
     
     func constrainSubviews() {
@@ -85,12 +83,16 @@ final class EpisodeDetailsView: UIView, EpisodeDetailsViewProtocol {
         
         NSLayoutConstraint.activate(
             [
-                contentView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                contentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                contentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                contentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+                detailsView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                detailsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                detailsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                detailsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ]
         )
+    }
+    
+    func additionalConfigurations() {
+        backgroundColor = .white
     }
     
 }

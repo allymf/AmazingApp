@@ -15,30 +15,24 @@ final class EpisodeDetailsPresenter: EpisodeDetailsPresentationLogic {
     weak var viewController: EpisodeDetailsDisplayLogic?
     
     func presentEpisodeDetails(response: EpisodeDetails.FetchEpisodeDetails.Response.Success) {
+        let seasonNumberText = makeSerieNumber(prefix: "Season", number: response.episode.season)
+        let episodeNumberText = makeSerieNumber(prefix: "Episode", number: response.episode.number)
         let episodeViewModel = EpisodeDetails.EpisodeViewModel(
-            posterPath: response.episode.image?.original ?? "",
+            bannerPath: response.episode.image?.original ?? "",
             name: response.episode.name ?? "",
-            seasonAndEpisodeNumberText: makeSeasonAndEpisodeNumberText(from: response.episode),
+            seasonNumberText: seasonNumberText,
+            episodeNumberText: episodeNumberText,
             summary: response.episode.summary?.removeHTMLMarks() ?? ""
         )
         
         viewController?.displayEpisodeDetails(viewModel: .init(episodeViewModel: episodeViewModel))
     }
     
-    private func makeSeasonAndEpisodeNumberText(from episode: Episode) -> String {
-        var seasonText = ""
-        var episodeText = ""
-        
-        if let seasonNumber = episode.season {
-            seasonText = "S\(seasonNumber)"
+    private func makeSerieNumber(prefix: String, number: Int?) -> String {
+        guard let number = number else {
+            return "\(prefix) -"
         }
-        
-        if let episodeNumber = episode.number {
-            episodeText = "E\(episodeNumber)"
-        }
-        
-        return seasonText + episodeText
+        return "\(prefix) \(number)"
     }
-    
     
 }
