@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol ShowDetailsViewActions {
+    var didSelectRowAt: (IndexPath) -> Void { get }
+}
+
 protocol ShowDetailsViewProtocol: ViewInitializer {
+    var actions: ShowDetailsViewActions? { get set }
     var showDetailsHeaderViewModel: ShowDetails.ShowDetailHeaderViewModel? { get set }
     var seasonViewModels: [ShowDetails.SeasonViewModel] { get set }
 }
@@ -29,6 +34,7 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         tableView.register(EntityTableViewCell.self)
         
         tableView.dataSource = self
+        tableView.delegate = self
         
         tableView.tableHeaderView = tableHeaderView
         
@@ -36,6 +42,9 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         
         return tableView
     }()
+    
+    // MARK: - Properties
+    var actions: ShowDetailsViewActions?
     
     var showDetailsHeaderViewModel: ShowDetails.ShowDetailHeaderViewModel? {
         didSet {
@@ -49,7 +58,7 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         }
     }
     
-    
+    // MARK: - Initialization
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         addSubviews()
@@ -65,7 +74,7 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
         super.layoutSubviews()
         let size = tableHeaderView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         if tableHeaderView.frame.size.height != size.height {
-            tableHeaderView.frame.size.height = size.height
+            tableHeaderView.frame.size.height = size.height + 200
             tableHeaderView.setNeedsLayout()
             tableHeaderView.layoutIfNeeded()
             tableView.tableHeaderView = tableHeaderView
@@ -76,8 +85,6 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
     func addSubviews() {
         addSubview(tableView)
     }
-    
-    
     
     func constrainSubviews() {
         NSLayoutConstraint.activate(
@@ -92,14 +99,6 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
     
     func additionalConfigurations() {
         backgroundColor = .white
-        
-//        let size = tableHeaderView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-//        if tableHeaderView.frame.size.height != size.height {
-//            tableHeaderView.frame.size.width = tableView.bounds.size.width
-//            tableHeaderView.frame.size.height = size.height
-//            tableView.tableHeaderView = tableHeaderView
-//            tableView.layoutIfNeeded()
-//        }
     }
     
     private func getEpisodeViewModel(for indexPath: IndexPath) -> ShowDetails.EpisodeViewModel? {
@@ -111,7 +110,10 @@ final class ShowDetailsView: UIView, ShowDetailsViewProtocol {
 
 extension ShowDetailsView: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(
+        _ tableView: UITableView,
+        titleForHeaderInSection section: Int
+    ) -> String? {
         return seasonViewModels[safeIndex: section]?.seasonTitle
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -140,5 +142,14 @@ extension ShowDetailsView: UITableViewDataSource {
         cell.viewModel = episodeViewModel
         
         return cell
+    }
+}
+
+extension ShowDetailsView: UITableViewDelegate {
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        actions?.didSelectRowAt(indexPath)
     }
 }

@@ -11,8 +11,8 @@ protocol EntityDetailsViewModel {
     var bannerPath: String { get }
     var iconPath: String { get }
     var name: String { get }
-    var timeText: String { get }
-    var genresText: String { get }
+    var subtitle: String { get }
+    var headline: String { get }
     var summary: String { get }
 }
 
@@ -23,8 +23,8 @@ final class EntityDetailsView: UIView {
             horizontalPosterImageView.imagePath = viewModel?.bannerPath ?? ""
             posterImageView.imagePath = viewModel?.iconPath ?? ""
             nameLabel.text = viewModel?.name
-            genreLabel.text = viewModel?.genresText
-            airTimeLabel.text = viewModel?.timeText
+            subtitleLabel.text = viewModel?.subtitle
+            headlineLabel.text = viewModel?.headline
             summaryLabel.text = viewModel?.summary
         }
     }
@@ -67,7 +67,7 @@ final class EntityDetailsView: UIView {
         return label
     }()
     
-    private let genreLabel: UILabel = {
+    private let subtitleLabel: UILabel = {
         let label = UILabel()
         
         label.font = Metrics.GenreLabel.font
@@ -79,7 +79,7 @@ final class EntityDetailsView: UIView {
         return label
     }()
     
-    private let airTimeLabel: UILabel = {
+    private let headlineLabel: UILabel = {
         let label = UILabel()
         
         label.font = Metrics.AirTimeLabel.font
@@ -147,8 +147,8 @@ final class EntityDetailsView: UIView {
         addSubview(summaryLabel)
         addSubview(descriptionStackView)
         descriptionStackView.addArrangedSubview(nameLabel)
-        descriptionStackView.addArrangedSubview(genreLabel)
-        descriptionStackView.addArrangedSubview(airTimeLabel)
+        descriptionStackView.addArrangedSubview(headlineLabel)
+        descriptionStackView.addArrangedSubview(subtitleLabel)
     }
     
     func constrainSubviews() {
@@ -215,17 +215,6 @@ final class EntityDetailsView: UIView {
         posterImageView.isHidden = true
         posterImageViewWidthConstraint?.isActive = false
         posterImageViewWidthConstraintHidden?.isActive = true
-    }
-    
-    func mockText() {
-        nameLabel.text = "Once Upon a Time Once Upon a Time"
-        genreLabel.text = "Drama, adventure, romance Drama, adventure, romance Drama, adventure, romance Drama, adventure, romance"
-        airTimeLabel.text = "Tue, Wed, Fri - 6p.m. Tue, Wed, Fri - 6p.m."
-        summaryLabel.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but al"
-        ratingLabel.text = " ⭑ 8.9 "
-        
-        posterImageView.backgroundColor = .systemGray3
-        horizontalPosterImageView.backgroundColor = .systemGray3
     }
 }
 

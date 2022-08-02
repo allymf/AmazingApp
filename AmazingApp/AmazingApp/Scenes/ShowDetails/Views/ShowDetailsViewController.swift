@@ -11,17 +11,22 @@ final class ShowDetailsViewController: UIViewController {
     
     let viewProtocol: ShowDetailsViewProtocol
     private let interactor: ShowDetailsBusinessLogic
+    let router: ShowDetailsRoutingLogic
     
     init(
         viewProtocol: ShowDetailsViewProtocol = ShowDetailsView(),
-        interactor: ShowDetailsBusinessLogic
+        interactor: ShowDetailsBusinessLogic,
+        router: ShowDetailsRoutingLogic
     ) {
         self.viewProtocol = viewProtocol
         self.interactor = interactor
+        self.router = router
         super.init(
             nibName: nil,
             bundle: nil
         )
+        
+        viewProtocol.actions = ShowDetails.Actions(didSelectRowAt: didSelectRowAt)
     }
     
     required init?(coder: NSCoder) {
@@ -37,6 +42,10 @@ final class ShowDetailsViewController: UIViewController {
         title = nil
         navigationController?.navigationBar.prefersLargeTitles = false
         interactor.fetchShowDetail()
+    }
+    
+    private func didSelectRowAt(_ indexPath: IndexPath) {
+        interactor.selectEpisode(request: .init(indexPath: indexPath))
     }
     
 }

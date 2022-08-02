@@ -11,6 +11,7 @@ protocol ShowDetailsPresentationLogic {
     func presentShowDetails(response: ShowDetails.FetchShowDetail.Response.Success)
     func presentShowSeasons(response: ShowDetails.FetchShowSeasons.Response.Success)
     func presentShowSeasonsFailure(response: ShowDetails.FetchShowSeasons.Response.Failure)
+    func presentSelectedEpisode()
 }
 
 final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
@@ -24,8 +25,8 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
             iconPath: response.show.image?.medium ?? String(),
             bannerPath: response.show.image?.original ?? String(),
             name: response.show.name ?? "-",
-            timeText: makeScheduleText(for: response.show.schedule),
-            genresText: genresText,
+            subtitle: makeScheduleText(for: response.show.schedule),
+            headline: genresText,
             summary: response.show.summary?.removeHTMLMarks() ?? String()
         )
         
@@ -33,7 +34,7 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
     }
     
     func presentShowSeasons(response: ShowDetails.FetchShowSeasons.Response.Success) {
-        let seasonsViewModel = makeSeasonsViewModel(with: response.episodes)
+        let seasonsViewModel = makeSeasonsViewModel(with: response.seasons)
         viewController?.displayShowSeasons(viewModel: .init(seasonViewModels: seasonsViewModel))
     }
     
@@ -41,26 +42,20 @@ final class ShowDetailsPresenter: ShowDetailsPresentationLogic {
         viewController?.displayShowSeasonsFailure(viewModel: .init(error: response.error))
     }
     
-    private func makeSeasonsViewModel(with episodes: [Episode]) -> [ShowDetails.SeasonViewModel] {
-        let episodeViewModels = episodes.map { makeEpisodeViewModel(from: $0) }
-        
-        let seasons: [ShowDetails.SeasonViewModel] = episodeViewModels.reduce([]) { partialResult, episodeViewModel in
-            guard let existingSeasonIndex = partialResult.firstIndex(where: { $0.number == episodeViewModel.season }) else {
-                let newSeasonViewModel = ShowDetails.SeasonViewModel(
-                    seasonTitle: "Season \(episodeViewModel.season)",
-                    number: episodeViewModel.season,
-                    episodes: [episodeViewModel]
-                )
-                return partialResult + [newSeasonViewModel]
-            }
-            
-            var newResult = partialResult
-            
-            newResult[existingSeasonIndex].episodes.append(episodeViewModel)
-            return newResult
+    func presentSelectedEpisode() {
+        viewController?.displaySelectedEpisode()
+    }
+    
+    private func makeSeasonsViewModel(with seasons: [ShowDetails.Season]) -> [ShowDetails.SeasonViewModel] {
+        return seasons.map {
+            let episodeViewModels = $0.episodes.map { makeEpisodeViewModel(from: $0) }
+            return ShowDetails.SeasonViewModel(
+                seasonTitle: "Season \($0.number)",
+                number: $0.number,
+                episodes: episodeViewModels
+            )
         }
-        
-        return seasons
+
     }
     
     private func makeEpisodeViewModel(from episode: Episode) -> ShowDetails.EpisodeViewModel {
