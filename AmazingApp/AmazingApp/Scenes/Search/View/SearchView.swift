@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol SearchViewActions {
+    var didSelectItemAt: (Int) -> Void { get }
+}
+
 protocol SearchViewProtocol: ViewInitializer {
+    var actions: SearchViewActions? { get set }
     func updateShowViewModels(_ showViewModels: [ShowCellModel])
     func renderLoadingState()
 }
@@ -46,6 +51,7 @@ final class SearchView: UIView, SearchViewProtocol {
     
     // MARK: - Properties
     private var showViewModels = [ShowCellModel]()
+    var actions: SearchViewActions?
     
     // MARK: - Initialization
     override init(frame: CGRect = .zero) {
@@ -148,6 +154,14 @@ extension SearchView: UICollectionViewDataSource {
 }
 
 extension SearchView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        actions?.didSelectItemAt(indexPath.item)
+    }
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,

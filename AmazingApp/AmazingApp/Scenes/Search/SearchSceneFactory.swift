@@ -12,10 +12,15 @@ struct SearchSceneFactory {
         let presenter = SearchPresenter()
         
         let interactor = SearchInteractor(presenter: presenter)
+        let router = SearchRouter(dataStore: interactor)
         
-        let viewController = SearchViewController(interactor: interactor)
+        let viewController = SearchViewController(
+            interactor: interactor,
+            router: router
+        )
         
         presenter.viewController = viewController
+        router.viewController = viewController
         
         return viewController
     }

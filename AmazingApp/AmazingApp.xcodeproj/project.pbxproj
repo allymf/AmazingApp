@@ -79,6 +79,7 @@
 		3F5A5D872898A3F70016D767 /* String+RemoveHTMLMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D862898A3F70016D767 /* String+RemoveHTMLMarks.swift */; };
 		3F628E222898A74800FFA094 /* ShowDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F628E212898A74800FFA094 /* ShowDetailsRouter.swift */; };
 		3F628E242898B00500FFA094 /* UINavigationController+SetupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F628E232898B00500FFA094 /* UINavigationController+SetupStyle.swift */; };
+		3F628E262898BE2B00FFA094 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F628E252898BE2B00FFA094 /* SearchRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +200,7 @@
 		3F5A5D862898A3F70016D767 /* String+RemoveHTMLMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveHTMLMarks.swift"; sourceTree = "<group>"; };
 		3F628E212898A74800FFA094 /* ShowDetailsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailsRouter.swift; sourceTree = "<group>"; };
 		3F628E232898B00500FFA094 /* UINavigationController+SetupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+SetupStyle.swift"; sourceTree = "<group>"; };
+		3F628E252898BE2B00FFA094 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 				3F166E3828977EC5001BAA81 /* SearchModels.swift */,
 				3F166E3528977EC5001BAA81 /* SearchPresenter.swift */,
 				3F166E3728977EC5001BAA81 /* SearchSceneFactory.swift */,
+				3F628E252898BE2B00FFA094 /* SearchRouter.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				3F5A5D54289782F50016D767 /* AmazingImageViewFactory.swift in Sources */,
 				3F166E4B28977F32001BAA81 /* SearchEndpoint.swift in Sources */,
 				3F4046C72897147E00A1A3E0 /* ShowListSceneFactory.swift in Sources */,
+				3F628E262898BE2B00FFA094 /* SearchRouter.swift in Sources */,
 				3F5A5D6628983E400016D767 /* Episode.swift in Sources */,
 				3F5A5D7C289881E90016D767 /* EpisodeDetailsView.swift in Sources */,
 				3F166E252897699E001BAA81 /* AmazingImageViewInteractor.swift in Sources */,

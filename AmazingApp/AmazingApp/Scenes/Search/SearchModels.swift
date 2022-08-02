@@ -36,6 +36,16 @@ enum Search {
         
     }
     
+    enum SelectShow {
+        struct Request {
+            let index: Int
+        }
+    }
+    
+    struct Actions: SearchViewActions {
+        let didSelectItemAt: (Int) -> Void
+    }
+    
     public struct ShowCellViewModel: ShowCellModel {
         let name: String
         let genresText: String
