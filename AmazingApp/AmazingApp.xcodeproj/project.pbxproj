@@ -78,6 +78,7 @@
 		3F5A5D8528989C110016D767 /* EntityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D8428989C110016D767 /* EntityDetailsView.swift */; };
 		3F5A5D872898A3F70016D767 /* String+RemoveHTMLMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A5D862898A3F70016D767 /* String+RemoveHTMLMarks.swift */; };
 		3F628E222898A74800FFA094 /* ShowDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F628E212898A74800FFA094 /* ShowDetailsRouter.swift */; };
+		3F628E242898B00500FFA094 /* UINavigationController+SetupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F628E232898B00500FFA094 /* UINavigationController+SetupStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 		3F5A5D8428989C110016D767 /* EntityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDetailsView.swift; sourceTree = "<group>"; };
 		3F5A5D862898A3F70016D767 /* String+RemoveHTMLMarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveHTMLMarks.swift"; sourceTree = "<group>"; };
 		3F628E212898A74800FFA094 /* ShowDetailsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailsRouter.swift; sourceTree = "<group>"; };
+		3F628E232898B00500FFA094 /* UINavigationController+SetupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+SetupStyle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +390,7 @@
 				3F4046B12896C2F500A1A3E0 /* Reusable */,
 				3F4046CD2897306100A1A3E0 /* Array+SafeSubscript.swift */,
 				3F5A5D862898A3F70016D767 /* String+RemoveHTMLMarks.swift */,
+				3F628E232898B00500FFA094 /* UINavigationController+SetupStyle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				3F4046CE2897306100A1A3E0 /* Array+SafeSubscript.swift in Sources */,
 				3F5A5D76289881A90016D767 /* EpisodeDetailsPresenter.swift in Sources */,
 				3F4046BD28970BD400A1A3E0 /* Show.swift in Sources */,
+				3F628E242898B00500FFA094 /* UINavigationController+SetupStyle.swift in Sources */,
 				3F5A5D5D289827640016D767 /* ShowDetailsViewController+DisplayLogic.swift in Sources */,
 				3F5A5D872898A3F70016D767 /* String+RemoveHTMLMarks.swift in Sources */,
 				3F5A5D6E289869170016D767 /* UITableView+Reuser.swift in Sources */,
@@ -924,7 +928,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -952,7 +956,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
