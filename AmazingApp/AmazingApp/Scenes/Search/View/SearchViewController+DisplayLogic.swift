@@ -10,6 +10,7 @@ import Foundation
 protocol SearchDisplayLogic: AnyObject {
     func displayShows(viewModel: Search.SearchShow.ViewModel.Success)
     func displayFailureShows(viewModel: Search.SearchShow.ViewModel.Failure)
+    func displaySelectedShow()
 }
 
 extension SearchViewController: SearchDisplayLogic {
@@ -20,4 +21,8 @@ extension SearchViewController: SearchDisplayLogic {
         }
     }
     func displayFailureShows(viewModel: Search.SearchShow.ViewModel.Failure) {}
+    
+    func displaySelectedShow() {
+        router.routeToShowDetails()
+    }
 }

@@ -10,6 +10,7 @@ import Foundation
 protocol SearchPresentationLogic {
     func presentShows(response: Search.SearchShow.Response.Success)
     func presentFailureShows(response: Search.SearchShow.Response.Failure)
+    func presentSelectedShow()
 }
 
 final class SearchPresenter: SearchPresentationLogic {
@@ -42,4 +43,9 @@ final class SearchPresenter: SearchPresentationLogic {
             ratingText: " ⭑ \(rating) "
         )
     }
+    
+    func presentSelectedShow() {
+        viewController?.displaySelectedShow()
+    }
+    
 }

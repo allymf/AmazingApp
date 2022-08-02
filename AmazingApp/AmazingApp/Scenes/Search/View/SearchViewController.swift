@@ -11,19 +11,24 @@ final class SearchViewController: UIViewController {
     // MARK: - Properties
     let viewProtocol: SearchViewProtocol
     private let interactor: SearchBusinessLogic
+    let router: SearchRoutingLogic
     private let searchController = UISearchController(searchResultsController: nil)
     
     init(
         viewProtocol: SearchViewProtocol = SearchView(),
-        interactor: SearchBusinessLogic
+        interactor: SearchBusinessLogic,
+        router: SearchRoutingLogic
     ) {
         self.viewProtocol = viewProtocol
         self.interactor = interactor
+        self.router = router
         
         super.init(
             nibName: nil,
             bundle: nil
         )
+        
+        viewProtocol.actions = Search.Actions(didSelectItemAt: didSelectItemAt)
     }
     
     required init?(coder: NSCoder) {
@@ -50,6 +55,11 @@ final class SearchViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
+    
+    private func didSelectItemAt(_ index: Int) {
+        interactor.selectShow(request: .init(index: index))
+    }
+    
 }
 
 extension SearchViewController: UISearchResultsUpdating {
