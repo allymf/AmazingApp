@@ -11,6 +11,7 @@ protocol ShowListPresentationLogic {
     func presentShows(response: ShowList.FetchShows.Response.Success)
     func presentFailureShows(response: ShowList.FetchShows.Response.Failure)
     func presentNextShowsPage(response: ShowList.FetchShows.Response.Success)
+    func presentSelectedShow()
 }
 
 final class ShowListPresenter: ShowListPresentationLogic {
@@ -35,6 +36,9 @@ final class ShowListPresenter: ShowListPresentationLogic {
         viewController?.displayNextShowsPage(viewModel: .init(showViewModels: showViewModels))
     }
     
+    func presentSelectedShow() {
+        viewController?.displaySelectedShow()
+    }
     
     private func makeShowCellViewModel(for show: Show) -> ShowCellModel {
         let genresText = show.genres?.joined(separator: ", ") ?? "Unknown"

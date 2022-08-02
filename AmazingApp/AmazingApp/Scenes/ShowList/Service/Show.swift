@@ -7,6 +7,15 @@
 
 import Foundation
 
+struct ImagePath: Decodable {
+    let medium: String?
+    let original: String?
+}
+
+struct Rating: Decodable {
+    let average: Double?
+}
+
 struct Show: Decodable {
     
     let id: Int?
@@ -29,15 +38,9 @@ struct Show: Decodable {
                 friday = "Friday",
                 saturday = "Saturday",
                 sunday = "Sunday"
+            
+            var abbreviation: String { String(self.rawValue.prefix(3))}
         }
-    }
-    
-    struct ImagePath: Decodable {
-        let medium: String?
-    }
-    
-    struct Rating: Decodable {
-        let average: Double?
     }
     
 }
